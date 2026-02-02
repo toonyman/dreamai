@@ -10,7 +10,7 @@ export interface DreamInterpretation {
 
 export async function interpretDream(dreamDescription: string): Promise<DreamInterpretation> {
     try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite' });
 
         const prompt = `Analyze this dream from a psychological perspective. Provide:
 1) A brief summary (2-3 sentences)
