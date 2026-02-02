@@ -27,11 +27,6 @@ export default function Home() {
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-4xl">
-            {/* Header Ad Space */}
-            <div className="mb-8 p-4 glass rounded-lg text-center text-sm text-gray-400">
-                [Ad Space - Header]
-            </div>
-
             {/* Hero Section */}
             <div className="text-center mb-12">
                 <div className="inline-flex items-center justify-center mb-6">
@@ -74,11 +69,6 @@ export default function Home() {
                         )}
                     </button>
                 </form>
-            </div>
-
-            {/* Bottom Ad Space */}
-            <div className="mt-8 p-4 glass rounded-lg text-center text-sm text-gray-400">
-                [Ad Space - Bottom]
             </div>
         </div>
     );

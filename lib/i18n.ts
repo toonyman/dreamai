@@ -7,7 +7,6 @@ const resources = {
         translation: {
             // Navigation
             "nav.home": "Home",
-            "nav.history": "History",
             "nav.language": "Language",
 
             // Home Page
@@ -17,21 +16,16 @@ const resources = {
             "home.submit": "Interpret My Dream",
             "home.loading": "Analyzing your dream...",
 
+            // SEO
+            "seo.title": "Free AI Dream Interpretation - Discover Your Dream Meanings",
+            "seo.description": "Get instant AI-powered dream analysis and interpretation. Understand the psychological meaning behind your dreams with our free multilingual service.",
+
             // Interpretation Page
             "interpretation.title": "Your Dream Analysis",
             "interpretation.summary": "Summary",
             "interpretation.deep": "Deep Interpretation",
             "interpretation.keywords": "Lucky Symbols & Keywords",
             "interpretation.share": "Share Result",
-            "interpretation.download": "Download Card",
-            "interpretation.save": "Save to History",
-
-            // History Page
-            "history.title": "Dream History",
-            "history.empty": "No dreams saved yet",
-            "history.signIn": "Sign in to save your dreams",
-            "history.date": "Date",
-            "history.dream": "Dream",
 
             // Common
             "common.error": "An error occurred. Please try again.",
@@ -42,7 +36,6 @@ const resources = {
         translation: {
             // Navigation
             "nav.home": "홈",
-            "nav.history": "기록",
             "nav.language": "언어",
 
             // Home Page
@@ -52,21 +45,16 @@ const resources = {
             "home.submit": "꿈 해몽하기",
             "home.loading": "꿈을 분석하고 있습니다...",
 
+            // SEO
+            "seo.title": "무료 AI 꿈 해몽 - 꿈의 의미를 발견하세요",
+            "seo.description": "AI 기반 꿈 분석과 해몽을 즉시 받아보세요. 무료 다국어 서비스로 꿈의 심리학적 의미를 이해하세요.",
+
             // Interpretation Page
             "interpretation.title": "꿈 분석 결과",
             "interpretation.summary": "요약",
             "interpretation.deep": "심층 해석",
             "interpretation.keywords": "행운의 상징 & 키워드",
             "interpretation.share": "결과 공유",
-            "interpretation.download": "카드 다운로드",
-            "interpretation.save": "기록에 저장",
-
-            // History Page
-            "history.title": "꿈 기록",
-            "history.empty": "아직 저장된 꿈이 없습니다",
-            "history.signIn": "로그인하여 꿈을 저장하세요",
-            "history.date": "날짜",
-            "history.dream": "꿈",
 
             // Common
             "common.error": "오류가 발생했습니다. 다시 시도해주세요.",
@@ -77,7 +65,6 @@ const resources = {
         translation: {
             // Navigation
             "nav.home": "Inicio",
-            "nav.history": "Historial",
             "nav.language": "Idioma",
 
             // Home Page
@@ -87,21 +74,16 @@ const resources = {
             "home.submit": "Interpretar Mi Sueño",
             "home.loading": "Analizando tu sueño...",
 
+            // SEO
+            "seo.title": "Interpretación de Sueños con IA Gratis - Descubre el Significado",
+            "seo.description": "Obtén análisis e interpretación de sueños con IA al instante. Comprende el significado psicológico de tus sueños con nuestro servicio multilingüe gratuito.",
+
             // Interpretation Page
             "interpretation.title": "Análisis de Tu Sueño",
             "interpretation.summary": "Resumen",
             "interpretation.deep": "Interpretación Profunda",
             "interpretation.keywords": "Símbolos de Suerte y Palabras Clave",
             "interpretation.share": "Compartir Resultado",
-            "interpretation.download": "Descargar Tarjeta",
-            "interpretation.save": "Guardar en Historial",
-
-            // History Page
-            "history.title": "Historial de Sueños",
-            "history.empty": "No hay sueños guardados aún",
-            "history.signIn": "Inicia sesión para guardar tus sueños",
-            "history.date": "Fecha",
-            "history.dream": "Sueño",
 
             // Common
             "common.error": "Ocurrió un error. Por favor, inténtalo de nuevo.",
@@ -112,7 +94,6 @@ const resources = {
         translation: {
             // Navigation
             "nav.home": "ホーム",
-            "nav.history": "履歴",
             "nav.language": "言語",
 
             // Home Page
@@ -122,21 +103,16 @@ const resources = {
             "home.submit": "夢を占う",
             "home.loading": "夢を分析しています...",
 
+            // SEO
+            "seo.title": "無料AI夢占い - 夢の意味を発見",
+            "seo.description": "AIによる夢分析と解釈を即座に取得。無料の多言語サービスで夢の心理的意味を理解しましょう。",
+
             // Interpretation Page
             "interpretation.title": "夢分析結果",
             "interpretation.summary": "要約",
             "interpretation.deep": "深層解釈",
             "interpretation.keywords": "幸運のシンボル＆キーワード",
             "interpretation.share": "結果を共有",
-            "interpretation.download": "カードをダウンロード",
-            "interpretation.save": "履歴に保存",
-
-            // History Page
-            "history.title": "夢の履歴",
-            "history.empty": "まだ保存された夢はありません",
-            "history.signIn": "ログインして夢を保存",
-            "history.date": "日付",
-            "history.dream": "夢",
 
             // Common
             "common.error": "エラーが発生しました。もう一度お試しください。",

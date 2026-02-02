@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Download, Share2, Save, Sparkles } from 'lucide-react';
+import { Share2, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import '../../lib/i18n';
-import { supabase, saveDream, extractKeywords } from '@/lib/supabase';
 
 
 interface Interpretation {
@@ -18,7 +17,6 @@ export default function InterpretationPage() {
     const [dreamText, setDreamText] = useState('');
     const [interpretation, setInterpretation] = useState<Interpretation | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [isSaving, setIsSaving] = useState(false);
     const router = useRouter();
     const { t } = useTranslation();
 
@@ -58,28 +56,6 @@ export default function InterpretationPage() {
         }
     };
 
-    const handleSave = async () => {
-        const { data: { user } } = await supabase.auth.getUser();
-
-        if (!user) {
-            alert(t('history.signIn'));
-            return;
-        }
-
-        if (!interpretation) return;
-
-        setIsSaving(true);
-        const keywords = extractKeywords(dreamText);
-        const saved = await saveDream(user.id, dreamText, interpretation, keywords);
-
-        if (saved) {
-            alert(t('common.success'));
-        } else {
-            alert(t('common.error'));
-        }
-        setIsSaving(false);
-    };
-
     const handleShare = () => {
         if (navigator.share) {
             navigator.share({
@@ -103,11 +79,6 @@ export default function InterpretationPage() {
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-4xl">
-            {/* Sidebar Ad Space */}
-            <div className="hidden lg:block fixed right-4 top-24 w-48 p-4 glass rounded-lg text-center text-sm text-gray-400">
-                [Ad Space - Sidebar]
-            </div>
-
             <div className="mb-8">
                 <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     {t('interpretation.title')}
@@ -121,14 +92,6 @@ export default function InterpretationPage() {
                     >
                         <Share2 className="w-4 h-4" />
                         {t('interpretation.share')}
-                    </button>
-                    <button
-                        onClick={handleSave}
-                        disabled={isSaving}
-                        className="flex items-center gap-2 px-4 py-2 glass rounded-lg hover:bg-white/10 transition-colors disabled:opacity-50"
-                    >
-                        <Save className="w-4 h-4" />
-                        {t('interpretation.save')}
                     </button>
                 </div>
             </div>
@@ -175,11 +138,6 @@ export default function InterpretationPage() {
                     </div>
                 </>
             )}
-
-            {/* Bottom Ad Space */}
-            <div className="mt-8 p-4 glass rounded-lg text-center text-sm text-gray-400">
-                [Ad Space - Bottom]
-            </div>
         </div>
     );
 }

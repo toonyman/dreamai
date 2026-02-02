@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Home, History, Globe } from 'lucide-react';
+import { Menu, X, Home, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import '../lib/i18n';
 
@@ -45,14 +45,6 @@ export default function Navigation() {
                             <Home className="w-4 h-4" />
                             {t('nav.home')}
                         </Link>
-                        <Link
-                            href="/history"
-                            className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${pathname === '/history' ? 'bg-white/10 text-white' : 'text-gray-300 hover:text-white'
-                                }`}
-                        >
-                            <History className="w-4 h-4" />
-                            {t('nav.history')}
-                        </Link>
 
                         {/* Language Selector */}
                         <div className="relative group">
@@ -93,13 +85,6 @@ export default function Navigation() {
                             onClick={() => setIsOpen(false)}
                         >
                             {t('nav.home')}
-                        </Link>
-                        <Link
-                            href="/history"
-                            className="block px-3 py-2 rounded-lg hover:bg-white/10"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            {t('nav.history')}
                         </Link>
                         <div className="pt-2 border-t border-white/10">
                             <p className="px-3 py-2 text-sm text-gray-400">{t('nav.language')}</p>
