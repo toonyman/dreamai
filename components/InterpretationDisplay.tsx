@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Sparkles, Facebook, Twitter, Linkedin, Link as LinkIcon, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import '../../lib/i18n';
+import '@/lib/i18n';
 
 interface Interpretation {
     summary: string;
