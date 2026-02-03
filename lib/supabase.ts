@@ -1,12 +1,7 @@
-export function extractKeywords(dreamDescription: string): string[] {
-    // Simple keyword extraction - split by spaces and filter common words
-    const commonWords = new Set(['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'was', 'were', 'is', 'are', 'i', 'my', 'me']);
 
-    const words = dreamDescription
-        .toLowerCase()
-        .replace(/[^\w\s]/g, '')
-        .split(/\s+/)
-        .filter(word => word.length > 3 && !commonWords.has(word));
+import { createClient } from '@supabase/supabase-js';
 
-    return [...new Set(words)].slice(0, 5);
-}
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseKey);

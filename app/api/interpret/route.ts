@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { interpretDream } from '@/lib/gemini';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
     try {
@@ -33,8 +34,32 @@ export async function POST(request: NextRequest) {
         console.log('Calling Gemini API for new interpretation');
         const interpretation = await interpretDream(dream);
 
+        // Save to Supabase
+        let id: string | undefined;
+        try {
+            const { data, error } = await supabase
+                .from('interpretations')
+                .insert([
+                    {
+                        dream,
+                        interpretation
+                    }
+                ])
+                .select()
+                .single();
+
+            if (error) {
+                console.error('Error saving to Supabase:', error);
+            } else {
+                id = data.id;
+            }
+        } catch (dbError) {
+            console.error('Database operation failed:', dbError);
+        }
+
         return NextResponse.json({
             interpretation,
+            id, // Return the ID for sharing
             cached: false,
         });
     } catch (error) {
