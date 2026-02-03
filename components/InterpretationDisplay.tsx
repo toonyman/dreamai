@@ -1,6 +1,5 @@
-'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Sparkles, Facebook, Twitter, Linkedin, Link as LinkIcon, Check } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import '@/lib/i18n';
@@ -19,7 +18,24 @@ interface InterpretationDisplayProps {
 export default function InterpretationDisplay({ dreamText, interpretation }: InterpretationDisplayProps) {
     const [copied, setCopied] = useState(false);
     const [showShareMenu, setShowShareMenu] = useState(false);
+    const shareMenuRef = useRef<HTMLDivElement>(null);
     const { t } = useTranslation();
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (shareMenuRef.current && !shareMenuRef.current.contains(event.target as Node)) {
+                setShowShareMenu(false);
+            }
+        };
+
+        if (showShareMenu) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showShareMenu]);
 
     const getShareUrl = () => {
         return typeof window !== 'undefined' ? window.location.href : '';
@@ -71,7 +87,7 @@ export default function InterpretationDisplay({ dreamText, interpretation }: Int
                 </h1>
 
                 {/* Share Buttons */}
-                <div className="relative">
+                <div className="relative" ref={shareMenuRef}>
                     <button
                         onClick={() => setShowShareMenu(!showShareMenu)}
                         className="flex items-center gap-2 px-4 py-2 glass rounded-lg hover:bg-white/10 transition-colors"
