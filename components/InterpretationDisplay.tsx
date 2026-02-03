@@ -1,3 +1,4 @@
+'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { Sparkles, Facebook, Twitter, Linkedin, Link as LinkIcon, Check } from 'lucide-react';
