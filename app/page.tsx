@@ -158,7 +158,7 @@ export default function Home() {
             </div>
 
             {/* Dream Input Form */}
-            <div className="glass rounded-2xl p-8 shadow-2xl">
+            <div className="glass rounded-2xl p-8 shadow-2xl mb-12">
                 <form onSubmit={handleSubmit}>
                     <textarea
                         value={dreamText}
@@ -186,6 +186,16 @@ export default function Home() {
                         )}
                     </button>
                 </form>
+            </div>
+
+            {/* About Section for SEO */}
+            <div className="glass rounded-2xl p-8 text-center max-w-3xl mx-auto">
+                <h2 className="text-2xl font-bold mb-4 text-purple-300">
+                    {t('home.about_title')}
+                </h2>
+                <p className="text-gray-300 leading-relaxed">
+                    {t('home.about_description')}
+                </p>
             </div>
         </div>
     );
