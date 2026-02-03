@@ -21,13 +21,24 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     const summary = data.interpretation?.summary || 'Deep Dream Analysis';
     const description = data.interpretation?.deepInterpretation || 'Explore the hidden meaning of your dreams with AI.';
 
+    const baseUrl = 'https://dreamai.vercel.app'; // Fallback to hardcoded domain if env var missing
+
     return {
         title: `Dream Interpretation: ${summary.substring(0, 50)}...`,
         description: description.substring(0, 200) + '...',
         openGraph: {
             title: `Dream Interpretation: ${summary.substring(0, 50)}...`,
             description: description.substring(0, 200) + '...',
-            images: ['/og-image.png'], // Ensure this image exists in public folder
+            url: `${baseUrl}/interpretation/${params.id}`,
+            images: [
+                {
+                    url: `${baseUrl}/og-image.png`,
+                    width: 1200,
+                    height: 630,
+                    alt: 'DreamAI - AI-Powered Dream Interpretation',
+                }
+            ],
+            type: 'article',
         },
     };
 }
