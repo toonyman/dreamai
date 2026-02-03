@@ -30,14 +30,6 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
             title: `Dream Interpretation: ${summary.substring(0, 50)}...`,
             description: description.substring(0, 200) + '...',
             url: `${baseUrl}/interpretation/${params.id}`,
-            images: [
-                {
-                    url: `${baseUrl}/og-image.png`,
-                    width: 1200,
-                    height: 630,
-                    alt: 'DreamAI - AI-Powered Dream Interpretation',
-                }
-            ],
             type: 'article',
         },
     };
