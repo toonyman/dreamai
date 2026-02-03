@@ -12,7 +12,10 @@ export async function interpretDream(dreamDescription: string): Promise<DreamInt
     try {
         const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite' });
 
-        const prompt = `Analyze this dream from a psychological perspective. Provide:
+        const prompt = `Analyze this dream from a psychological perspective.
+IMPORTANT: Detect the language of the dream description below and provide the response in that SAME language.
+
+Provide:
 1) A brief summary (2-3 sentences)
 2) A deep interpretation explaining the psychological meaning and symbolism (4-5 sentences)
 3) Three lucky keywords or symbols from the dream
