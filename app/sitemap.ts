@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://dreamai.vercel.app'
+    const baseUrl = 'https://dreamai-eight.vercel.app'
     const languages = ['en', 'ko', 'es', 'ja']
 
     const routes = [
