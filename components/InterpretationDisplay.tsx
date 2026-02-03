@@ -182,18 +182,16 @@ export default function InterpretationDisplay({ dreamText, interpretation }: Int
                     ))}
                 </div>
             </div>
+            {/* Back to Home Button */}
+            <div className="flex justify-center mt-12 mb-8">
+                <button
+                    onClick={() => window.location.href = '/'}
+                    className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-white font-semibold transition-all hover:scale-105 flex items-center gap-2"
+                >
+                    <Sparkles className="w-5 h-5 text-purple-400" />
+                    <span>{t('interpretation.analyze_another', 'Analyze Another Dream')}</span>
+                </button>
+            </div>
         </div>
-
-            {/* Back to Home Button */ }
-    <div className="flex justify-center mt-12 mb-8">
-        <button
-            onClick={() => window.location.href = '/'}
-            className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-white font-semibold transition-all hover:scale-105 flex items-center gap-2"
-        >
-            <Sparkles className="w-5 h-5 text-purple-400" />
-            <span>{t('interpretation.analyze_another', 'Analyze Another Dream')}</span>
-        </button>
-    </div>
-        </div >
     );
 }
