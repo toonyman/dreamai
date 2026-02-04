@@ -65,10 +65,16 @@ export default function InterpretationPage() {
 
     if (isLoading) {
         return (
-            <div className="container mx-auto px-4 py-12 max-w-4xl">
-                <div className="flex flex-col items-center justify-center min-h-[60vh]">
-                    <Sparkles className="w-16 h-16 text-purple-400 animate-pulse mb-4" />
-                    <p className="text-xl text-gray-300">{t('home.loading')}</p>
+            <div className="container mx-auto px-4 py-20 max-w-4xl relative z-10">
+                <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+                    <div className="relative mb-8">
+                        <div className="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full scale-150 animate-pulse" />
+                        <Sparkles className="w-20 h-20 text-mystic-glow animate-float relative z-10" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-white mb-4 font-cinzel tracking-widest text-glow uppercase">
+                        Gazing into the subconscious...
+                    </h2>
+                    <p className="text-purple-200/60 animate-pulse font-light tracking-wide">{t('home.loading')}</p>
                 </div>
             </div>
         );

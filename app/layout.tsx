@@ -147,8 +147,10 @@ export default function RootLayout({
                 />
             </head>
             <body className={inter.className}>
+                <div className="mystery-bg" />
+                <div className="mystery-overlay" />
                 <Navigation />
-                <main className="min-h-screen">
+                <main className="min-h-screen relative z-10">
                     {children}
                 </main>
             </body>

@@ -44,9 +44,14 @@ export default async function InterpretationIdPage({ params }: { params: { id: s
 
     if (!data) {
         return (
-            <div className="container mx-auto px-4 py-12 max-w-4xl text-center">
-                <h1 className="text-3xl font-bold text-white mb-4">Dream Not Found</h1>
-                <p className="text-gray-300">The dream interpretation you are looking for does not exist.</p>
+            <div className="container mx-auto px-4 py-20 max-w-4xl text-center relative z-10">
+                <h1 className="text-4xl font-bold text-white mb-6 font-cinzel text-glow">Dream Lost in Mist</h1>
+                <p className="text-purple-200/60 text-lg">The dream interpretation you are looking for has faded into the subconscious.</p>
+                <div className="mt-12">
+                    <a href="/" className="px-8 py-4 glass rounded-xl text-white font-bold tracking-widest uppercase border border-purple-500/30 hover:bg-white/10 transition-all">
+                        Return to Reality
+                    </a>
+                </div>
             </div>
         );
     }
