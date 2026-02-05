@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
     try {
-        const { dream } = await request.json();
+        const { dream, type = 'general' } = await request.json();
 
         if (!dream || typeof dream !== 'string') {
             return NextResponse.json(
@@ -23,7 +23,12 @@ export async function POST(request: NextRequest) {
                 interpretation: {
                     summary: "This is a demo interpretation. Your dream suggests themes of exploration and discovery. The imagery reflects your subconscious processing daily experiences.",
                     deepInterpretation: "From a psychological perspective, this dream represents your mind's way of organizing thoughts and emotions. The symbols you encountered may relate to your current life situation, aspirations, or concerns. Dreams often serve as a bridge between conscious and unconscious, helping you process complex feelings. To receive actual AI analysis, please configure your Gemini API key.",
-                    luckyKeywords: ["discovery", "growth", "transformation"]
+                    luckyKeywords: ["discovery", "growth", "transformation"],
+                    luckyItem: "Compass",
+                    luckyColor: "Blue",
+                    luckyNumber: "7",
+                    rarityScore: 78,
+                    rarityTier: "Rare"
                 },
                 cached: false,
                 demo: true
@@ -31,8 +36,8 @@ export async function POST(request: NextRequest) {
         }
 
         // Call Gemini API for interpretation
-        console.log('Calling Gemini API for new interpretation');
-        const interpretation = await interpretDream(dream);
+        console.log(`Calling Gemini API for new interpretation (${type})`);
+        const interpretation = await interpretDream(dream, type);
 
         // Save to Supabase
         let id: string | undefined;
@@ -62,11 +67,25 @@ export async function POST(request: NextRequest) {
             id, // Return the ID for sharing
             cached: false,
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error in interpret API:', error);
-        return NextResponse.json(
-            { error: 'Failed to interpret dream' },
-            { status: 500 }
-        );
+
+        // Fallback to demo interpretation on error
+        return NextResponse.json({
+            interpretation: {
+                summary: "This is a fallback interpretation because the AI service is currently unavailable. Your dream suggests resilience and the ability to find meaning even in uncertain times.",
+                deepInterpretation: "The error encountered suggests a temporary disruption in the connection to the collective unconscious (or the API). However, seeing this message means your intent to understand your dreams is strong. This symbol of 'disruption' may reflect obstacles in your waking life that you are ready to overcome.",
+                luckyKeywords: ["resilience", "patience", "overcoming"],
+                luckyItem: "Shield",
+                luckyColor: "Silver",
+                luckyNumber: "1",
+                rarityScore: 10,
+                rarityTier: "Common"
+            },
+            cached: false,
+            demo: true,
+            fallback: true,
+            error: error.message || 'Unknown error'
+        });
     }
 }
