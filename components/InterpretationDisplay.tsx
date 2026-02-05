@@ -40,7 +40,7 @@ export default function InterpretationDisplay({ dreamText, interpretation }: Int
 
     const getShareText = () => {
         return interpretation
-            ? `${t('interpretation.title')} - ${interpretation.summary.substring(0, 100)}...`
+            ? `${interpretation.summary}\n\n${getShareUrl()}`
             : t('interpretation.title');
     };
 
