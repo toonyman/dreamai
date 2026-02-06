@@ -24,7 +24,9 @@ export default function InterpretationPage() {
     const [dreamText, setDreamText] = useState('');
     const [interpretation, setInterpretation] = useState<Interpretation | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [isTranslating, setIsTranslating] = useState(false);
     const [error, setError] = useState(false);
+    const [currentLang, setCurrentLang] = useState('');
     const router = useRouter();
     const { t, i18n } = useTranslation();
 
@@ -40,12 +42,42 @@ export default function InterpretationPage() {
         interpretDream(dream, type || 'general');
     }, [router]);
 
+    // Handle translation when language changes
+    useEffect(() => {
+        if (!interpretation || !i18n.language || i18n.language === currentLang || isLoading || isTranslating) return;
+
+        const translateContent = async () => {
+            try {
+                setIsTranslating(true);
+                const response = await fetch('/api/translate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        interpretation,
+                        targetLanguage: i18n.language
+                    }),
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setInterpretation(data.interpretation);
+                    setCurrentLang(i18n.language);
+                }
+            } catch (err) {
+                console.error('Translation failed:', err);
+            } finally {
+                setIsTranslating(false);
+            }
+        };
+
+        translateContent();
+    }, [i18n.language, interpretation, currentLang, isLoading, isTranslating]);
+
     const interpretDream = async (dream: string, type: string) => {
         try {
             setIsLoading(true);
             setError(false);
 
-            // Call the API route to get interpretation
             const response = await fetch('/api/interpret', {
                 method: 'POST',
                 headers: {
@@ -58,10 +90,9 @@ export default function InterpretationPage() {
 
             const data = await response.json();
 
-            // If fallback is true, use client-side localized demo data
             if (data.fallback) {
                 const isKorean = i18n.language === 'ko';
-                setInterpretation({
+                const fallbackData = {
                     summary: isKorean
                         ? "이 꿈은 당신의 내면 깊은 곳에 있는 잠재력을 나타냅니다. 현재의 상황에서 새로운 기회가 다가오고 있음을 암시하며, 긍정적인 변화를 받아들일 준비가 되어 있다는 신호입니다."
                         : "This dream represents the potential deep within you. It suggests that new opportunities are approaching in your current situation, and it is a sign that you are ready to accept positive changes.",
@@ -75,12 +106,25 @@ export default function InterpretationPage() {
                     rarityScore: 85,
                     rarityTier: "Epic",
                     fallback: true
-                });
+                };
+                setInterpretation(fallbackData);
+                setCurrentLang(i18n.language);
             } else {
                 setInterpretation(data.interpretation);
+                // We don't know the exact language Gemini returned, but it should match the input.
+                // We will let the translation effect handle it if the user switches.
+                // To avoid immediate translation loop, we assume first result is "correct" for whatever input was.
+                // But we need to mark it so that if user changes language, it triggers.
+                // We can't easily detect language of string, so we'll assume the current UI language 
+                // matches the result IF the user hasn't changed it yet.
+                // Actually, let's just NOT set currentLang here, and let the first translation effect
+                // potentially trigger IF i18n.language != detected lang.
+                // Actually, the user says "input language should follow result". 
+                // So if I use i18n.language as currentLang, it might not trigger translation if they match.
+                // Let's just set it to a placeholder or wait.
+                setCurrentLang('auto-detected');
             }
 
-            // Update URL with ID for sharing if available
             if (data.id) {
                 const newUrl = `/interpretation/${data.id}`;
                 window.history.pushState({ path: newUrl }, '', newUrl);
@@ -95,32 +139,37 @@ export default function InterpretationPage() {
 
     if (isLoading) {
         return (
-            <div className="container mx-auto px-4 py-20 max-w-4xl relative z-10">
-                <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-                    <div className="relative mb-8">
-                        <div className="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full scale-150 animate-pulse" />
-                        <Sparkles className="w-20 h-20 text-mystic-glow animate-float relative z-10" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-white mb-4 font-cinzel tracking-widest text-glow uppercase">
-                        Gazing into the subconscious...
-                    </h2>
-                    <p className="text-purple-200/60 animate-pulse font-light tracking-wide">{t('home.loading')}</p>
+            <div className="min-h-screen flex flex-col items-center justify-center p-4">
+                <div className="relative mb-8">
+                    <div className="absolute inset-0 bg-purple-500/10 blur-[100px] rounded-full scale-[3] animate-pulse" />
+                    <Sparkles className="w-16 h-16 text-purple-400/40 animate-float-slow transition-colors relative z-10" />
                 </div>
+                <h2 className="text-xl font-light tracking-[0.4em] uppercase text-white/40 mb-2 animate-pulse">
+                    {t('home.loading')}
+                </h2>
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple-400/20">
+                    Transcending the veil...
+                </p>
             </div>
         );
     }
 
     if (error || !interpretation) {
         return (
-            <div className="container mx-auto px-4 py-20 max-w-4xl text-center relative z-10">
-                <div className="glass-mystic rounded-[2rem] p-12 border border-red-500/30">
-                    <h2 className="text-3xl font-bold text-red-300 mb-4 font-cinzel">Connection Severed</h2>
-                    <p className="text-purple-200/60 text-lg mb-8">The mystic energies are turbulent. We could not interpret your dream at this moment.</p>
+            <div className="min-h-screen flex flex-col items-center justify-center p-4">
+                <div className="glass-card rounded-[3rem] p-12 md:p-16 max-w-xl w-full text-center space-y-8">
+                    <div className="text-4xl grayscale opacity-20">📡</div>
+                    <div className="space-y-4">
+                        <h2 className="text-2xl font-bold tracking-tight text-white leading-tight">Connection Severed</h2>
+                        <p className="text-white/40 font-light leading-relaxed">
+                            The mystic energies are turbulent. We could not bridge the gap to your subconscious at this moment.
+                        </p>
+                    </div>
                     <button
                         onClick={() => window.location.href = '/'}
-                        className="px-8 py-4 bg-white/10 hover:bg-white/20 rounded-xl text-white font-bold tracking-widest uppercase transition-all"
+                        className="w-full py-5 bg-white/5 hover:bg-white/10 border border-white/5 rounded-2xl text-[10px] font-bold tracking-[0.2em] uppercase text-white/60 transition-all"
                     >
-                        Return to Reality
+                        Return to Threshold
                     </button>
                 </div>
             </div>
@@ -128,9 +177,20 @@ export default function InterpretationPage() {
     }
 
     return (
-        <InterpretationDisplay
-            dreamText={dreamText}
-            interpretation={interpretation}
-        />
+        <div className={isTranslating ? 'opacity-50 pointer-events-none transition-opacity duration-500' : 'transition-opacity duration-500'}>
+            <InterpretationDisplay
+                dreamText={dreamText}
+                interpretation={interpretation}
+            />
+            {isTranslating && (
+                <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200]">
+                    <div className="glass-premium px-6 py-3 rounded-full flex items-center gap-3 border border-white/10 shadow-2xl">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full animate-ping" />
+                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/60">Translating Vision...</span>
+                    </div>
+                </div>
+            )}
+        </div>
     );
 }
+

@@ -80,3 +80,28 @@ Please respond ONLY with valid JSON in this exact format:
         throw new Error('Failed to interpret dream. Please try again.');
     }
 }
+export async function translateInterpretation(interpretation: DreamInterpretation, targetLanguage: string): Promise<DreamInterpretation> {
+    try {
+        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+        const prompt = `Translate the following dream interpretation JSON into ${targetLanguage}. 
+        Keep the technical structure exactly the same. 
+        Only translate the content strings (summary, deepInterpretation, luckyKeywords, luckyItem, luckyColor, rarityTier).
+        
+        Input JSON:
+        ${JSON.stringify(interpretation)}
+        
+        Please respond ONLY with the translated valid JSON.`;
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = response.text();
+        const jsonMatch = text.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) throw new Error('Invalid translation response');
+
+        return JSON.parse(jsonMatch[0]);
+    } catch (error) {
+        console.error('Error translating interpretation:', error);
+        return interpretation; // Fallback to original
+    }
+}

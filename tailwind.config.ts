@@ -54,6 +54,8 @@ const config: Config = {
         'float': 'float 6s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'drift': 'drift 20s linear infinite',
+        'fade-in': 'fade-in 1s ease-out forwards',
+        'shine-slow': 'shine-slow 10s linear infinite',
       },
       keyframes: {
         float: {
@@ -67,6 +69,15 @@ const config: Config = {
         drift: {
           '0%': { transform: 'translateX(0) rotate(0deg)' },
           '100%': { transform: 'translateX(-100%) rotate(10deg)' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'shine-slow': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
         }
       },
     },
