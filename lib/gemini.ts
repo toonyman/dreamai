@@ -18,7 +18,7 @@ export type InterpretationType = 'general' | 'wealth' | 'romance' | 'creative';
 
 export async function interpretDream(dreamDescription: string, type: InterpretationType = 'general'): Promise<DreamInterpretation> {
     try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
         let focusPrompt = "Analyze this dream from a general psychological perspective.";
         if (type === 'wealth') {
@@ -85,7 +85,7 @@ Please respond ONLY with valid JSON in this exact format:
 }
 export async function translateInterpretation(interpretation: DreamInterpretation, targetLanguage: string): Promise<DreamInterpretation> {
     try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
         const prompt = `Translate the following dream interpretation JSON into ${targetLanguage}. 
         Keep the technical structure exactly the same. 
