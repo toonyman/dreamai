@@ -106,21 +106,21 @@ export default function InterpretationDisplay({ dreamText, interpretation }: Int
                     </div>
 
                     {/* Deep Analysis */}
-                    <div className="glass-card rounded-[2.5rem] p-10 md:p-12 space-y-8">
-                        <div className="space-y-4">
+                    <div className="glass-card rounded-[2.5rem] p-10 md:p-12 space-y-10">
+                        <div className="space-y-6">
                             <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-purple-400/60">
                                 {t('interpretation.summary')}
                             </h2>
-                            <p className="text-2xl md:text-3xl font-light text-white leading-tight">
+                            <p className="text-3xl md:text-4xl font-serif italic text-white leading-[1.3] text-balance">
                                 {interpretation.summary}
                             </p>
                         </div>
                         <div className="w-full h-px bg-white/5" />
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                             <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/20">
                                 {t('interpretation.deep')}
                             </h3>
-                            <p className="text-lg text-white/60 font-light leading-loose text-justify">
+                            <p className="text-xl text-white/70 font-light leading-[1.8] text-justify whitespace-pre-wrap">
                                 {interpretation.deepInterpretation}
                             </p>
                         </div>
