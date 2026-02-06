@@ -61,6 +61,7 @@ export default function InterpretationPage() {
                 if (response.ok) {
                     const data = await response.json();
                     setInterpretation(data.interpretation);
+                    // Match currentLang to i18n.language after successful translation
                     setCurrentLang(i18n.language);
                 }
             } catch (err) {
@@ -105,24 +106,15 @@ export default function InterpretationPage() {
                     luckyNumber: "7",
                     rarityScore: 85,
                     rarityTier: "Epic",
+                    detectedLanguage: isKorean ? 'ko' : 'en',
                     fallback: true
                 };
                 setInterpretation(fallbackData);
-                setCurrentLang(i18n.language);
+                setCurrentLang(isKorean ? 'ko' : 'en');
             } else {
                 setInterpretation(data.interpretation);
-                // We don't know the exact language Gemini returned, but it should match the input.
-                // We will let the translation effect handle it if the user switches.
-                // To avoid immediate translation loop, we assume first result is "correct" for whatever input was.
-                // But we need to mark it so that if user changes language, it triggers.
-                // We can't easily detect language of string, so we'll assume the current UI language 
-                // matches the result IF the user hasn't changed it yet.
-                // Actually, let's just NOT set currentLang here, and let the first translation effect
-                // potentially trigger IF i18n.language != detected lang.
-                // Actually, the user says "input language should follow result". 
-                // So if I use i18n.language as currentLang, it might not trigger translation if they match.
-                // Let's just set it to a placeholder or wait.
-                setCurrentLang('auto-detected');
+                // Important: Set the current color to the language Gemini actually detected/returned
+                setCurrentLang(data.interpretation.detectedLanguage || i18n.language);
             }
 
             if (data.id) {

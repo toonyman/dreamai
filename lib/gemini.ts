@@ -11,6 +11,7 @@ export interface DreamInterpretation {
     luckyNumber: string;
     rarityScore: number;
     rarityTier: string; // "Common", "Rare", "Epic", "Legendary"
+    detectedLanguage: string; // "en", "ko", "es", "ja", etc.
 }
 
 export type InterpretationType = 'general' | 'wealth' | 'romance' | 'creative';
@@ -32,9 +33,9 @@ export async function interpretDream(dreamDescription: string, type: Interpretat
 
 CRITICAL LANGUAGE INSTRUCTION:
 1. Detect the language of the Dream description below.
-2. If the dream is in KOREAN, the ENTIRE JSON response (summary, deepInterpretation, luckyKeywords, luckyItem, luckyColor) MUST be in KOREAN.
-3. If the dream is in another language (Spanish, Japanese, etc.), response MUST be in that SAME language.
-4. Only use English if the dream is in English.
+2. The ENTIRE JSON response (summary, deepInterpretation, luckyKeywords, luckyItem, luckyColor, rarityTier) MUST be in that SAME detected language.
+3. If the dream is Korean, results MUST be Korean. If Japanese, results MUST be Japanese. If Spanish, results MUST be Spanish.
+4. NEVER mix English with other languages unless specifically requested in the dream text.
 
 Required Output Fields:
 1) summary: A brief summary (2-3 sentences)
@@ -45,6 +46,7 @@ Required Output Fields:
 6) luckyNumber: A lucky number
 7) rarityScore: A "Rarity Score" (0-100) based on importance.
 8) rarityTier: "Common", "Rare", "Epic", or "Legendary"
+9) detectedLanguage: The ISO 639-1 code of the detected dream language (e.g., 'ko' for Korean, 'en' for English)
 
 Dream description: "${dreamDescription}"
 
@@ -59,7 +61,8 @@ Please respond ONLY with valid JSON in this exact format:
   "luckyColor": "color name",
   "luckyNumber": "number",
   "rarityScore": 85,
-  "rarityTier": "Epic"
+  "rarityTier": "Epic",
+  "detectedLanguage": "ko"
 }`;
 
         const result = await model.generateContent(prompt);
@@ -87,6 +90,7 @@ export async function translateInterpretation(interpretation: DreamInterpretatio
         const prompt = `Translate the following dream interpretation JSON into ${targetLanguage}. 
         Keep the technical structure exactly the same. 
         Only translate the content strings (summary, deepInterpretation, luckyKeywords, luckyItem, luckyColor, rarityTier).
+        Update the "detectedLanguage" field to "${targetLanguage}".
         
         Input JSON:
         ${JSON.stringify(interpretation)}
