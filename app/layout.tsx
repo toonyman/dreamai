@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Script from "next/script";
-import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -148,14 +147,12 @@ export default function RootLayout({
                 />
             </head>
             <body className={inter.className}>
-                <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-                    <div className="stitch-bg-mesh" />
-                    <div className="stitch-grid" />
-                    <Navigation />
-                    <main className="min-h-screen relative z-0">
-                        {children}
-                    </main>
-                </ThemeProvider>
+                <div className="stitch-bg-mesh" />
+                <div className="stitch-grid" />
+                <Navigation />
+                <main className="min-h-screen relative z-0">
+                    {children}
+                </main>
             </body>
         </html>
     );
