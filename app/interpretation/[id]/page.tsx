@@ -31,9 +31,16 @@ export default function InterpretationIdPage({ params }: { params: { id: string 
 
                 if (dbData) {
                     setData(dbData);
-                    setInterpretation(dbData.interpretation);
-                    // Assume initial language is the one detected in the saved interpretation
-                    setCurrentLang(dbData.interpretation?.detectedLanguage || 'en');
+                    const result = dbData.interpretation;
+                    setInterpretation(result);
+
+                    const detected = result?.detectedLanguage || (/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(dbData.dream) ? 'ko' : 'en');
+                    setCurrentLang(detected);
+
+                    // Sync UI language with the dream language initially
+                    if (i18n.language !== detected) {
+                        i18n.changeLanguage(detected);
+                    }
                 }
             } catch (err) {
                 console.error('Fetch error:', err);
@@ -45,7 +52,11 @@ export default function InterpretationIdPage({ params }: { params: { id: string 
     }, [params.id]);
 
     useEffect(() => {
-        if (!interpretation || !i18n.language || i18n.language === currentLang || isLoading || isTranslating) return;
+        // Normalize language codes (e.g., 'en-US' -> 'en')
+        const target = i18n.language?.split('-')[0];
+        const current = currentLang?.split('-')[0];
+
+        if (!interpretation || !target || target === current || isLoading || isTranslating) return;
 
         const translateContent = async () => {
             try {
@@ -55,17 +66,20 @@ export default function InterpretationIdPage({ params }: { params: { id: string 
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         interpretation,
-                        targetLanguage: i18n.language
+                        targetLanguage: target
                     }),
                 });
 
                 if (response.ok) {
                     const data = await response.json();
                     setInterpretation(data.interpretation);
-                    setCurrentLang(i18n.language);
+                    setCurrentLang(target);
+                } else {
+                    setCurrentLang(target);
                 }
             } catch (err) {
                 console.error('Translation failed:', err);
+                setCurrentLang(target);
             } finally {
                 setIsTranslating(false);
             }

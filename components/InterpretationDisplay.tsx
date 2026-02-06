@@ -26,12 +26,17 @@ export default function InterpretationDisplay({ dreamText, interpretation }: Int
     const { t } = useTranslation();
 
     const getTierColor = (tier: string) => {
-        switch (tier?.toLowerCase()) {
-            case 'legendary': return 'text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,0.5)] font-serif italic';
-            case 'epic': return 'text-purple-400 drop-shadow-[0_0_15px_rgba(167,139,250,0.5)] font-serif italic';
-            case 'rare': return 'text-blue-400 font-serif italic';
-            default: return 'text-white/40 font-serif italic';
+        const t = tier?.toLowerCase() || '';
+        if (t.includes('legendary') || t.includes('전설')) {
+            return 'text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,0.5)] font-serif italic';
         }
+        if (t.includes('epic') || t.includes('서사') || t.includes('에픽')) {
+            return 'text-purple-400 drop-shadow-[0_0_15px_rgba(167,139,250,0.5)] font-serif italic';
+        }
+        if (t.includes('rare') || t.includes('희귀')) {
+            return 'text-blue-400 font-serif italic';
+        }
+        return 'text-white/40 font-serif italic';
     };
 
     const getShareUrl = () => {

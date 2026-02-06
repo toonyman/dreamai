@@ -44,7 +44,11 @@ export default function InterpretationPage() {
 
     // Handle translation when language changes
     useEffect(() => {
-        if (!interpretation || !i18n.language || i18n.language === currentLang || isLoading || isTranslating) return;
+        // Normalize language codes (e.g., 'en-US' -> 'en')
+        const target = i18n.language?.split('-')[0];
+        const current = currentLang?.split('-')[0];
+
+        if (!interpretation || !target || target === current || isLoading || isTranslating) return;
 
         const translateContent = async () => {
             try {
@@ -54,18 +58,22 @@ export default function InterpretationPage() {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         interpretation,
-                        targetLanguage: i18n.language
+                        targetLanguage: target
                     }),
                 });
 
                 if (response.ok) {
                     const data = await response.json();
                     setInterpretation(data.interpretation);
-                    // Match currentLang to i18n.language after successful translation
-                    setCurrentLang(i18n.language);
+                    setCurrentLang(target);
+                } else {
+                    // Even if it fails, we set currentLang to target to prevent infinite re-try loops
+                    // unless you want it to keep trying. Usually better to stop and let user try again.
+                    setCurrentLang(target);
                 }
             } catch (err) {
                 console.error('Translation failed:', err);
+                setCurrentLang(target);
             } finally {
                 setIsTranslating(false);
             }
@@ -90,32 +98,19 @@ export default function InterpretationPage() {
             if (!response.ok) throw new Error('Failed to interpret dream');
 
             const data = await response.json();
+            const result = data.interpretation;
 
-            if (data.fallback) {
-                const isKorean = i18n.language === 'ko';
-                const fallbackData = {
-                    summary: isKorean
-                        ? "이 꿈은 당신의 내면 깊은 곳에 있는 잠재력을 나타냅니다. 현재의 상황에서 새로운 기회가 다가오고 있음을 암시하며, 긍정적인 변화를 받아들일 준비가 되어 있다는 신호입니다."
-                        : "This dream represents the potential deep within you. It suggests that new opportunities are approaching in your current situation, and it is a sign that you are ready to accept positive changes.",
-                    deepInterpretation: isKorean
-                        ? "꿈속의 상징들은 당신의 무의식이 성장을 갈망하고 있음을 보여줍니다. 특히 감정적인 부분에서 큰 해방감을 느낄 수 있는 사건이 생길 수 있으며, 이는 당신의 커리어 나 대인 관계에서 중요한 전환점이 될 것입니다. 두려워하지 말고 직관을 따르세요."
-                        : "The symbols in your dream show that your subconscious is longing for growth. In particular, an event may occur where you can feel a great sense of liberation emotionally, which will be a major turning point in your career or interpersonal relationships. Do not be afraid and follow your intuition.",
-                    luckyKeywords: isKorean ? ["기회", "변화", "직관"] : ["Opportunity", "Change", "Intuition"],
-                    luckyItem: isKorean ? "오래된 열쇠" : "Old Key",
-                    luckyColor: isKorean ? "남색" : "Indigo",
-                    luckyNumber: "7",
-                    rarityScore: 85,
-                    rarityTier: "Epic",
-                    detectedLanguage: isKorean ? 'ko' : 'en',
-                    fallback: true
-                };
-                setInterpretation(fallbackData);
-                setCurrentLang(isKorean ? 'ko' : 'en');
-            } else {
-                setInterpretation(data.interpretation);
-                // Important: Set the current color to the language Gemini actually detected/returned
-                setCurrentLang(data.interpretation.detectedLanguage || i18n.language);
+            // Determine the language of the result
+            const isKoreanInput = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(dream);
+            const detected = result.detectedLanguage || (isKoreanInput ? 'ko' : 'en');
+
+            // Critical Point 1: Sync UI language with the dream language initially
+            if (i18n.language !== detected) {
+                await i18n.changeLanguage(detected);
             }
+
+            setInterpretation(result);
+            setCurrentLang(detected);
 
             if (data.id) {
                 const newUrl = `/interpretation/${data.id}`;
