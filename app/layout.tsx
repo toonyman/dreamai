@@ -7,24 +7,22 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Dream Interpretation - Free AI-Powered Dream Analysis",
-    description: "Discover the hidden meanings in your dreams with our free AI-powered psychological analysis. Get instant dream interpretations in English, Korean, Spanish, and Japanese. Understand your subconscious mind through advanced AI technology.",
+    title: "WhoAmI.zip: Unzip Your Soul",
+    description: "Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place. Analyze your global face value, turn weird dreams into logic, and discover your hidden personality layers.",
     keywords: [
-        "dream interpretation",
+        "WhoAmI.zip",
+        "face analysis",
         "dream analysis",
-        "AI dream meaning",
-        "dream psychology",
-        "free dream interpretation",
-        "dream symbols",
-        "subconscious mind",
-        "dream analyzer",
+        "MBTI test",
+        "personality layers",
+        "face value ranking",
         "꿈 해몽",
-        "interpretación de sueños",
-        "夢占い"
+        "관상 분석",
+        "성격 테스트"
     ],
-    authors: [{ name: "DreamAI" }],
-    creator: "DreamAI",
-    publisher: "DreamAI",
+    authors: [{ name: "WhoAmI.zip" }],
+    creator: "WhoAmI.zip",
+    publisher: "WhoAmI.zip",
     formatDetection: {
         email: false,
         address: false,
@@ -41,10 +39,10 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Dream Interpretation - Free AI-Powered Dream Analysis",
-        description: "Discover the hidden meanings in your dreams with our free AI-powered psychological analysis. Available in multiple languages.",
+        title: "WhoAmI.zip: Unzip Your Soul",
+        description: "Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place.",
         url: 'https://dreamai.vercel.app',
-        siteName: 'DreamAI',
+        siteName: 'WhoAmI.zip',
         locale: 'en_US',
         type: 'website',
         images: [
@@ -52,14 +50,14 @@ export const metadata: Metadata = {
                 url: '/og-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'DreamAI - AI-Powered Dream Interpretation',
+                alt: 'WhoAmI.zip - Unzip Your Soul',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Dream Interpretation - Free AI Analysis',
-        description: 'Discover the hidden meanings in your dreams with AI-powered psychological analysis.',
+        title: 'WhoAmI.zip: Unzip Your Soul',
+        description: 'Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place.',
         images: ['/og-image.png'],
     },
     robots: {
@@ -126,8 +124,8 @@ export default function RootLayout({
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "WebApplication",
-                            "name": "DreamAI",
-                            "description": "Free AI-powered dream interpretation and analysis service",
+                            "name": "WhoAmI.zip",
+                            "description": "Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place.",
                             "url": "https://dreamai.vercel.app",
                             "applicationCategory": "LifestyleApplication",
                             "offers": {
@@ -137,9 +135,9 @@ export default function RootLayout({
                             },
                             "inLanguage": ["en", "ko", "es", "ja"],
                             "featureList": [
-                                "AI-powered dream analysis",
-                                "Multi-language support",
-                                "Psychological interpretation",
+                                "Global Face Analysis",
+                                "AI Dream Lab",
+                                "MBTI Personality Lab",
                                 "Instant results"
                             ]
                         })
@@ -149,6 +147,13 @@ export default function RootLayout({
             <body className={inter.className}>
                 <div className="stitch-bg-mesh" />
                 <div className="stitch-grid" />
+
+                {/* Global Background Decorative Flares */}
+                <div className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-20 z-[-1]">
+                    <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] animate-pulse" />
+                    <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
+                </div>
+
                 <Navigation />
                 <main className="min-h-screen relative z-0">
                     {children}

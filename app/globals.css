@@ -119,3 +119,11 @@ button:disabled {
   cursor: not-allowed;
   opacity: 0.3;
 }
+
+.text-dimmed {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.text-subtle {
+  color: rgba(255, 255, 255, 0.45);
+}

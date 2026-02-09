@@ -43,6 +43,11 @@ const config: Config = {
           light: '#a8b5d1',
           DEFAULT: '#6b7fa8',
           dark: '#3d4f6f',
+        },
+        'mystic-night': {
+          deep: '#1a1a2e',
+          gold: '#f8b400',
+          white: '#e0e0e0',
         }
       },
       backgroundImage: {

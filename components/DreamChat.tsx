@@ -86,7 +86,7 @@ export default function DreamChat({ dreamDescription, initialInterpretation }: D
                 </div>
                 <div>
                     <h2 className="text-xl font-bold text-white tracking-wide">{t('chat.title', 'Dream Oracle Chat')}</h2>
-                    <p className="text-xs text-purple-200/60 uppercase tracking-widest">{t('chat.subtitle', 'Ask deeper questions about your dream')}</p>
+                    <p className="text-sm text-purple-200/60 uppercase tracking-widest">{t('chat.subtitle', 'Ask deeper questions about your dream')}</p>
                 </div>
             </div>
 
@@ -131,7 +131,7 @@ export default function DreamChat({ dreamDescription, initialInterpretation }: D
                         <button
                             key={i}
                             onClick={() => handleSendMessage(q)}
-                            className="text-xs py-2 px-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-purple-200 transition-colors text-left"
+                            className="text-sm py-2 px-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-purple-200 transition-colors text-left"
                         >
                             {q}
                         </button>

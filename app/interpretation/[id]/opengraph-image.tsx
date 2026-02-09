@@ -57,7 +57,7 @@ export default async function Image({ params }: { params: { id: string } }) {
                         letterSpacing: '4px',
                     }}
                 >
-                    DreamAI Interpretation
+                    WhoAmI.zip Lab
                 </div>
 
                 <div

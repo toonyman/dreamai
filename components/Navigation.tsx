@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Globe, Twitter, Link as LinkIcon, Check, Sparkles } from 'lucide-react';
+import { Menu, X, Globe, Twitter, Facebook, Link as LinkIcon, Check, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import '../lib/i18n';
 
@@ -23,11 +23,13 @@ export default function Navigation() {
     };
 
     const getShareUrl = () => {
-        return typeof window !== 'undefined' ? window.location.origin : 'https://dreamai.vercel.app';
+        return typeof window !== 'undefined' ? window.location.href : 'https://dreamai.vercel.app';
     };
 
     const getShareText = () => {
-        return 'DreamAI - AI-Powered Dream Interpretation. Unlock your subconscious.';
+        return i18n.language === 'ko'
+            ? 'WhoAmI.zip: 당신의 영혼을 압축 해제하세요. 얼굴 분석, 꿈 해몽, MBTI 분위기까지!'
+            : 'WhoAmI.zip: Unzip Your Soul. Face scanning, Dream decoding, and MBTI vibes.';
     };
 
     const handleCopyLink = async () => {
@@ -46,29 +48,51 @@ export default function Navigation() {
         window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
     };
 
+    const handleShareFacebook = () => {
+        const url = encodeURIComponent(getShareUrl());
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+    };
+
     return (
         <>
-            <nav className="fixed top-0 left-0 w-full z-[100] px-6 py-6 transition-all duration-500">
-                <div className="max-w-7xl mx-auto flex items-center justify-between glass-premium rounded-full px-8 py-4 border border-white/10 shadow-2xl">
+            <nav className="fixed top-0 left-0 w-full z-[100] px-4 py-4 transition-all duration-500">
+                <div className="max-w-7xl mx-auto flex items-center justify-between glass-premium rounded-full px-6 py-2.5 border border-white/10 shadow-2xl">
                     {/* Logo */}
                     <Link href="/" className="group flex items-center space-x-3">
                         <div className="relative">
                             <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full blur opacity-30 group-hover:opacity-50 transition-opacity" />
                             <Sparkles className="w-8 h-8 text-white relative group-hover:scale-110 group-hover:rotate-12 transition-all duration-500" />
                         </div>
-                        <span className="text-2xl font-bold tracking-tight text-gradient-stitch">
-                            DreamAI
+                        <span className="text-xl font-bold tracking-tight text-gradient-stitch">
+                            WhoAmI.zip
                         </span>
                     </Link>
 
                     {/* Desktop Actions */}
                     <div className="hidden md:flex items-center space-x-8">
+                        <div className="flex items-center space-x-6 mr-4 border-r border-white/10 pr-6">
+                            <Link href="/dream-analysis" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-purple-400 transition-all">
+                                {t('nav.dream')}
+                            </Link>
+                            <Link href="/mbti" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-mystic-night-gold transition-all">
+                                {t('nav.mbti')}
+                            </Link>
+                            <Link href="/face-passport" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-cyan-400 transition-all">
+                                {t('nav.face')}
+                            </Link>
+                        </div>
                         <div className="flex items-center gap-2 border-r border-white/10 pr-8">
                             <button
                                 onClick={handleShareTwitter}
                                 className="p-2 text-white/40 hover:text-white transition-colors"
                             >
                                 <Twitter className="w-5 h-5" />
+                            </button>
+                            <button
+                                onClick={handleShareFacebook}
+                                className="p-2 text-white/40 hover:text-white transition-colors"
+                            >
+                                <Facebook className="w-5 h-5" />
                             </button>
                             <button
                                 onClick={handleCopyLink}
@@ -80,7 +104,7 @@ export default function Navigation() {
 
                         {/* Language Selector */}
                         <div className="relative group">
-                            <button className="flex items-center gap-3 text-[11px] font-bold tracking-[0.2em] uppercase text-white/50 hover:text-white transition-all">
+                            <button className="flex items-center gap-3 text-sm font-bold tracking-wider uppercase text-white/50 hover:text-white transition-all">
                                 <Globe className="w-4 h-4" />
                                 {languages.find(l => l.code === i18n.language)?.name || 'Language'}
                             </button>
@@ -89,7 +113,7 @@ export default function Navigation() {
                                     <button
                                         key={lang.code}
                                         onClick={() => changeLanguage(lang.code)}
-                                        className={`block w-full text-left px-5 py-3 rounded-2xl hover:bg-white/5 transition-colors text-xs font-medium tracking-wide ${i18n.language === lang.code ? 'text-purple-400 font-bold' : 'text-white/60 hover:text-white'
+                                        className={`block w-full text-left px-5 py-3 rounded-2xl hover:bg-white/5 transition-colors text-sm font-medium tracking-wide ${i18n.language === lang.code ? 'text-purple-400 font-bold' : 'text-white/60 hover:text-white'
                                             }`}
                                     >
                                         {lang.name}
@@ -120,7 +144,7 @@ export default function Navigation() {
 
                         <div className="flex flex-col h-full space-y-12">
                             <div className="space-y-6">
-                                <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/20">Languages</p>
+                                <p className="text-sm font-bold tracking-widest uppercase text-white/20">Languages</p>
                                 <div className="space-y-4">
                                     {languages.map((lang) => (
                                         <button
@@ -139,9 +163,10 @@ export default function Navigation() {
                             </div>
 
                             <div className="space-y-6 pt-12 border-t border-white/10">
-                                <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/20">Connect</p>
+                                <p className="text-sm font-bold tracking-widest uppercase text-white/20">Connect</p>
                                 <div className="flex gap-8">
                                     <Twitter className="w-6 h-6 text-white/40 cursor-pointer hover:text-white transition-colors" onClick={handleShareTwitter} />
+                                    <Facebook className="w-6 h-6 text-white/40 cursor-pointer hover:text-white transition-colors" onClick={handleShareFacebook} />
                                     <LinkIcon className="w-6 h-6 text-white/40 cursor-pointer hover:text-white transition-colors" onClick={handleCopyLink} />
                                 </div>
                             </div>

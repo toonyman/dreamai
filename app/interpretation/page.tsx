@@ -134,8 +134,8 @@ export default function InterpretationPage() {
                 <h2 className="text-xl font-light tracking-[0.4em] uppercase text-white/40 mb-2 animate-pulse">
                     {t('home.loading')}
                 </h2>
-                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-purple-400/40">
-                    Transcending the veil...
+                <p className="text-sm font-bold tracking-[0.2em] uppercase text-purple-400/40">
+                    {t('interpretation.transcending')}
                 </p>
             </div>
         );
@@ -147,16 +147,16 @@ export default function InterpretationPage() {
                 <div className="glass-card rounded-[3rem] p-12 md:p-16 max-w-xl w-full text-center space-y-8 border-white/10 bg-black/60 shadow-2xl">
                     <div className="text-4xl grayscale opacity-20">📡</div>
                     <div className="space-y-4">
-                        <h2 className="text-2xl font-bold tracking-tight text-white leading-tight">Connection Severed</h2>
+                        <h2 className="text-2xl font-bold tracking-tight text-white leading-tight">{t('interpretation.connection_severed')}</h2>
                         <p className="text-white/40 font-light leading-relaxed">
-                            The mystic energies are turbulent. We could not bridge the gap to your subconscious at this moment.
+                            {t('interpretation.mystic_energies')}
                         </p>
                     </div>
                     <button
                         onClick={() => window.location.href = '/'}
-                        className="w-full py-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-[10px] font-bold tracking-[0.2em] uppercase text-white/60 transition-all font-bold"
+                        className="w-full py-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-sm font-bold tracking-[0.2em] uppercase text-white/60 transition-all font-bold"
                     >
-                        Return to Threshold
+                        {t('interpretation.return_threshold')}
                     </button>
                 </div>
             </div>
@@ -173,7 +173,7 @@ export default function InterpretationPage() {
                 <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200]">
                     <div className="glass-premium px-8 py-4 rounded-full flex items-center gap-4 border border-white/20 shadow-2xl bg-black/80 backdrop-blur-xl">
                         <div className="w-2.5 h-2.5 bg-purple-500 rounded-full animate-ping" />
-                        <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">Translating Vision...</span>
+                        <span className="text-sm font-bold tracking-[0.2em] uppercase text-white/80">{t('interpretation.translating_vision')}</span>
                     </div>
                 </div>
             )}
