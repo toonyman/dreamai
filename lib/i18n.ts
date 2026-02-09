@@ -11,6 +11,8 @@ const resources = {
             "nav.mbti": "MBTI Lab",
             "nav.face": "Face Analysis",
             "nav.dream": "Dream Lab",
+            "nav.privacy": "Privacy",
+            "nav.terms": "Terms",
 
             // MBTI Page
             "mbti.title": "Arthurian Legend MBTI",
@@ -338,9 +340,23 @@ const resources = {
             "home.about_title": "About WhoAmI.zip",
             "home.about_description": "WhoAmI.zip is your digital identity lab. We combine advanced AI face scanning, psychological dream decoding, and deep personality analysis to unzip the complexity of your soul. Whether you're exploring your global face value, decoding the logic of your subconscious, or uncovering hidden personality layers, everything about YOU is in one place. Unzip yourself today.",
 
-            // Common
-            "common.error": "An error occurred. Please try again.",
             "common.success": "Success!",
+
+            // How it works
+            "home.how_it_works_title": "The Science of Subconscious",
+            "home.how_it_works_desc": "How WhoAmI.zip decodes your digital and spiritual identity.",
+            "home.step1_title": "AI Image Processing",
+            "home.step1_desc": "Our Face Analysis uses local computer vision to identify global aesthetic patterns without uploading your data.",
+            "home.step2_title": "Dream Semantics",
+            "home.step2_desc": "We apply Large Language Models to map dream imagery to psychological archetypes and cultural symbols.",
+            "home.step3_title": "Legend Synthesis",
+            "home.step3_desc": "Finally, we cross-reference your traits with historical legends and MBTI layers to give you a complete profile.",
+
+            // Legal
+            "privacy.title": "Privacy Policy",
+            "privacy.content": "At WhoAmI.zip, we take your privacy seriously. All face analysis is performed locally on your device and images are never uploaded to our servers. Dream descriptions are processed securely to provide interpretations. We do not sell your personal data to third parties. Our lab is designed to be a safe space for self-discovery.",
+            "terms.title": "Terms of Service",
+            "terms.content": "By using WhoAmI.zip, you agree that the interpretations provided are for entertainment and self-reflection purposes only. We do not provide medical or psychological advice. You are responsible for the content you input and share. Our 'unzipping' process is an AI-driven simulation of identity analysis.",
         }
     },
     ko: {
@@ -351,6 +367,8 @@ const resources = {
             "nav.mbti": "MBTI Lab",
             "nav.face": "얼굴 분석",
             "nav.dream": "꿈 해몽 Lab",
+            "nav.privacy": "개인정보처리방침",
+            "nav.terms": "이용약관",
 
             // MBTI Page
             "mbti.title": "아더왕 전설 MBTI",
@@ -680,6 +698,22 @@ const resources = {
             // Common
             "common.error": "오류가 발생했습니다. 다시 시도해주세요.",
             "common.success": "성공!",
+
+            // How it works
+            "home.how_it_works_title": "무의식의 과학",
+            "home.how_it_works_desc": "WhoAmI.zip이 당신의 디지털 및 영적 정체성을 해독하는 방법입니다.",
+            "home.step1_title": "AI 이미지 프로세싱",
+            "home.step1_desc": "얼굴 분석은 로컬 컴퓨터 비전을 사용하여 데이터를 업로드하지 않고도 글로벌 미적 패턴을 식별합니다.",
+            "home.step2_title": "꿈의 의미론",
+            "home.step2_desc": "대규모 언어 모델을 적용하여 꿈의 이미지를 심리학적 원형과 문화적 상징에 매핑합니다.",
+            "home.step3_title": "전설의 합성",
+            "home.step3_desc": "마지막으로, 당신의 특성을 역사적 전설 및 MBTI 층과 교차 참조하여 완전한 프로필을 제공합니다.",
+
+            // Legal
+            "privacy.title": "개인정보처리방침",
+            "privacy.content": "WhoAmI.zip은 귀하의 개인정보를 소중히 여깁니다. 모든 얼굴 분석은 귀하의 기기에서 로컬로 수행되며 이미지는 당사 서버에 업로드되지 않습니다. 꿈 설명은 해석을 제공하기 위해 안전하게 처리됩니다. 당사는 귀하의 개인 데이터를 제3자에게 판매하지 않습니다. 저희 실험실은 자기 발견을 위한 안전한 공간으로 설계되었습니다.",
+            "terms.title": "이용약관",
+            "terms.content": "WhoAmI.zip을 사용함으로써 귀하는 제공된 해석이 오락 및 자기 성찰 목적으로만 제공된다는 점에 동의합니다. 당사는 의료 또는 심리적 조언을 제공하지 않습니다. 귀하는 입력하고 공유하는 콘텐츠에 대한 책임이 있습니다. 당사의 '압축 해제' 프로세스는 AI 기반의 정체성 분석 시뮬레이션입니다.",
         }
     },
     es: {

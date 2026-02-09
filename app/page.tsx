@@ -108,28 +108,65 @@ export default function Home() {
                 ))}
             </div>
 
-            {/* Footer decoration */}
-            <div className="mt-20 opacity-20 hover:opacity-100 transition-opacity">
-                <div className="flex justify-center space-x-12 text-white/30 text-sm font-bold tracking-[0.3em] uppercase">
-                    <span className="cursor-default">Insight</span>
-                    <span className="cursor-default">Legend</span>
-                    <span className="cursor-default">Destiny</span>
+            {/* How it Works Section - Boosts static content for AdSense */}
+            <div className="mt-32 max-w-7xl w-full relative z-10">
+                <div className="text-center mb-16 space-y-4">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
+                        {t('home.how_it_works_title')}
+                    </h2>
+                    <p className="text-lg text-dimmed max-w-2xl mx-auto">
+                        {t('home.how_it_works_desc')}
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-12">
+                    <div className="space-y-4 text-center p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                        <div className="w-12 h-12 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <span className="text-2xl font-bold text-purple-400">01</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-white">{t('home.step1_title')}</h3>
+                        <p className="text-sm text-dimmed leading-relaxed">
+                            {t('home.step1_desc')}
+                        </p>
+                    </div>
+
+                    <div className="space-y-4 text-center p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all">
+                        <div className="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <span className="text-2xl font-bold text-indigo-400">02</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-white">{t('home.step2_title')}</h3>
+                        <p className="text-sm text-dimmed leading-relaxed">
+                            {t('home.step2_desc')}
+                        </p>
+                    </div>
+
+                    <div className="space-y-4 text-center p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-amber-500/30 transition-all">
+                        <div className="w-12 h-12 bg-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <span className="text-2xl font-bold text-amber-400">03</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-white">{t('home.step3_title')}</h3>
+                        <p className="text-sm text-dimmed leading-relaxed">
+                            {t('home.step3_desc')}
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            {/* About Section */}
-            <div className="mt-20 max-w-2xl w-full text-center space-y-6 pb-20 relative z-10">
-                <div className="w-px h-16 bg-gradient-to-b from-transparent via-purple-500/50 to-transparent mx-auto" />
-                <h2 className="text-xl md:text-2xl font-serif italic text-white/80">
+            {/* Final About Section */}
+            <div className="mt-40 max-w-4xl w-full text-center space-y-8 pb-32 relative z-10 border-t border-white/5 pt-20">
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/40">
+                    Established 2026
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
                     {t('home.about_title')}
                 </h2>
-                <p className="text-base text-dimmed leading-loose font-light italic max-w-xl mx-auto">
-                    {t('home.about_description')}
+                <p className="text-xl text-dimmed leading-relaxed font-light italic max-w-3xl mx-auto">
+                    "{t('home.about_description')}"
                 </p>
-                <div className="flex justify-center space-x-8 text-subtle">
-                    <Facebook className="w-6 h-6 cursor-pointer hover:text-white transition-colors" />
-                    <Twitter className="w-6 h-6 cursor-pointer hover:text-white transition-colors" />
-                    <Linkedin className="w-6 h-6 cursor-pointer hover:text-white transition-colors" />
+                <div className="pt-8">
+                    <Link href="/dream-analysis" className="px-10 py-4 bg-white text-black rounded-full font-bold hover:bg-purple-500 hover:text-white transition-all">
+                        Enter the Lab
+                    </Link>
                 </div>
             </div>
         </div>
