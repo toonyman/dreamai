@@ -163,11 +163,6 @@ export default function Home() {
                 <p className="text-xl text-dimmed leading-relaxed font-light italic max-w-3xl mx-auto">
                     "{t('home.about_description')}"
                 </p>
-                <div className="pt-8">
-                    <Link href="/dream-analysis" className="px-10 py-4 bg-white text-black rounded-full font-bold hover:bg-purple-500 hover:text-white transition-all">
-                        Enter the Lab
-                    </Link>
-                </div>
             </div>
         </div>
     );
