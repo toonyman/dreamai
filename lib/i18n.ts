@@ -447,9 +447,24 @@ const resources = {
 
             // Legal
             "privacy.title": "Privacy Policy",
-            "privacy.content": "At WhoAmI.zip, we take your privacy seriously. All face analysis is performed locally on your device and images are never uploaded to our servers. Dream descriptions are processed securely to provide interpretations. We do not sell your personal data to third parties. Our lab is designed to be a safe space for self-discovery.",
+            "privacy.content": "At WhoAmI.zip, we take your privacy seriously. This policy explains how we handle your data and our use of advertising cookies.",
+            "privacy.data_usage_title": "1. Data Collection & Usage",
+            "privacy.data_usage_content": "All face analysis is performed locally on your device; images are never uploaded to our servers. Dream descriptions are processed securely to provide interpretations. We do not sell your personal data to third parties.",
+            "privacy.adsense_title": "2. Google AdSense & Cookies",
+            "privacy.adsense_content": "We use Google AdSense to serve ads. Google, as a third-party vendor, uses cookies to serve ads on this site. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and other sites on the Internet. You may opt out of personalized advertising by visiting Google Ads Settings (https://www.google.com/settings/ads).",
+            "privacy.third_party_title": "3. Third-Party Links",
+            "privacy.third_party_content": "Our site may contain links to other websites. We are not responsible for the privacy practices of those sites.",
+            "privacy.contact_title": "4. Contact Us",
+            "privacy.contact_content": "If you have any questions about this Privacy Policy, please contact us at monkeys_paradise@naver.com.",
+
             "terms.title": "Terms of Service",
-            "terms.content": "By using WhoAmI.zip, you agree that the interpretations provided are for entertainment and self-reflection purposes only. We do not provide medical or psychological advice. You are responsible for the content you input and share. Our 'unzipping' process is an AI-driven simulation of identity analysis.",
+            "terms.content": "By using WhoAmI.zip, you agree to the following terms and conditions.",
+            "terms.purpose_title": "1. Entertainment Purpose",
+            "terms.purpose_content": "The interpretations and analysis provided by our AI are for entertainment and self-reflection purposes only. We do not provide medical, psychological, or professional advice.",
+            "terms.user_resp_title": "2. User Responsibility",
+            "terms.user_resp_content": "You are solely responsible for the content you input and the results you share. We are not liable for any decisions made based on AI-generated results.",
+            "terms.ip_title": "3. Intellectual Property",
+            "terms.ip_content": "The 'WhoAmI.zip' brand, its lab features, and AI-driven simulation processes are protected properties. Unauthorized reproduction is prohibited.",
         }
     },
     ko: {
@@ -967,9 +982,24 @@ const resources = {
 
             // Legal
             "privacy.title": "개인정보처리방침",
-            "privacy.content": "WhoAmI.zip은 귀하의 개인정보를 소중히 여깁니다. 모든 얼굴 분석은 귀하의 기기에서 로컬로 수행되며 이미지는 당사 서버에 업로드되지 않습니다. 꿈 설명은 해석을 제공하기 위해 안전하게 처리됩니다. 당사는 귀하의 개인 데이터를 제3자에게 판매하지 않습니다. 저희 실험실은 자기 발견을 위한 안전한 공간으로 설계되었습니다.",
+            "privacy.content": "WhoAmI.zip은 사용자의 개인정보를 소중히 여기며, 투명한 데이터 처리를 약속합니다. 본 방침은 데이터 처리 방식과 광고 쿠키 사용에 대해 설명합니다.",
+            "privacy.data_usage_title": "1. 데이터 수집 및 사용",
+            "privacy.data_usage_content": "모든 얼굴 분석은 사용자의 기기에서 로컬로 수행되며 촬영된 이미지는 서버에 절대 업로드되지 않습니다. 꿈 해몽 및 텍스트 데이터는 해석 제공을 위해 안전하게 처리됩니다. 당사는 사용자의 데이터를 제3자에게 판매하지 않습니다.",
+            "privacy.adsense_title": "2. Google AdSense 및 쿠키",
+            "privacy.adsense_content": "본 웹사이트는 Google AdSense 광고를 게재합니다. Google은 제3자 제공업체로서 쿠키를 사용하여 본 사이트의 방문 기록을 바탕으로 광고를 제공합니다. Google의 광고 쿠키 사용을 통해 Google 및 파트너는 사용자의 본 사이트 및 다른 사이트 방문을 기반으로 맞춤형 광고를 게재할 수 있습니다. 사용자는 Google 광고 설정(https://www.google.com/settings/ads)에서 맞춤형 광고를 해제할 수 있습니다.",
+            "privacy.third_party_title": "3. 외부 링크",
+            "privacy.third_party_content": "사이트 내 외부 서비스 링크가 포함될 수 있으며, 해당 서비스의 개인정보 보호 정책은 당사와 무관합니다.",
+            "privacy.contact_title": "4. 문의하기",
+            "privacy.contact_content": "개인정보처리방침에 관한 문의사항은 monkeys_paradise@naver.com으로 연락 주시기 바랍니다.",
+
             "terms.title": "이용약관",
-            "terms.content": "WhoAmI.zip을 사용함으로써 귀하는 제공된 해석이 오락 및 자기 성찰 목적으로만 제공된다는 점에 동의합니다. 당사는 의료 또는 심리적 조언을 제공하지 않습니다. 귀하는 입력하고 공유하는 콘텐츠에 대한 책임이 있습니다. 당사의 '압축 해제' 프로세스는 AI 기반의 정체성 분석 시뮬레이션입니다。",
+            "terms.content": "WhoAmI.zip 서비스를 이용함으로써 귀하는 다음 약관에 동의하게 됩니다.",
+            "terms.purpose_title": "1. 엔터테인먼트 목적",
+            "terms.purpose_content": "본 서비스의 AI 분석 및 해몽 결과는 오직 재미와 자기 성찰을 위한 참고용입니다. 당사는 의학적, 심리학적 또는 전문적인 조언을 제공하지 않습니다.",
+            "terms.user_resp_title": "2. 사용자의 책임",
+            "terms.user_resp_content": "귀하가 입력하는 콘텐츠와 공유하는 결과에 대한 책임은 귀하에게 있습니다. AI 생성 결과에 근거한 결정에 대해 당사는 책임을 지지 않습니다.",
+            "terms.ip_title": "3. 지적 재산권",
+            "terms.ip_content": "'WhoAmI.zip' 브랜드와 서비스 내 모든 AI 분석 프로세스는 고유의 자산으로 보호받습니다. 무단 복제 및 전재를 금합니다.",
         }
     },
     es: {

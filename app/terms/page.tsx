@@ -15,16 +15,26 @@ export default function TermsPage() {
                     </h1>
                 </header>
 
-                <div className="glass-card rounded-3xl p-8 md:p-12 space-y-6 leading-relaxed text-dimmed">
+                <div className="glass-card rounded-3xl p-8 md:p-12 space-y-8 leading-relaxed text-dimmed">
                     <p className="text-lg">
                         {t('terms.content')}
                     </p>
-                    <div className="space-y-4 pt-4 border-t border-white/10">
-                        <h2 className="text-xl font-bold text-white">License to Use</h2>
-                        <p>Unless otherwise stated, WhoAmI.zip and/or its licensors own the intellectual property rights for all material on WhoAmI.zip. All intellectual property rights are reserved.</p>
 
-                        <h2 className="text-xl font-bold text-white">User Responsibility</h2>
-                        <p>Users are responsible for any result they generate and share. The AI interpretations are not legally binding and should be treated as a form of creative expression.</p>
+                    <div className="space-y-6 pt-4 border-t border-white/10">
+                        <section className="space-y-2">
+                            <h2 className="text-xl font-bold text-white tracking-tight">{t('terms.purpose_title')}</h2>
+                            <p>{t('terms.purpose_content')}</p>
+                        </section>
+
+                        <section className="space-y-2">
+                            <h2 className="text-xl font-bold text-white tracking-tight">{t('terms.user_resp_title')}</h2>
+                            <p>{t('terms.user_resp_content')}</p>
+                        </section>
+
+                        <section className="space-y-2">
+                            <h2 className="text-xl font-bold text-white tracking-tight">{t('terms.ip_title')}</h2>
+                            <p>{t('terms.ip_content')}</p>
+                        </section>
                     </div>
                 </div>
             </div>

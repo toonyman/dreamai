@@ -34,9 +34,9 @@ export default function Footer() {
                         <li><Link href="/privacy" className="text-dimmed hover:text-purple-400 transition-colors">{t('nav.privacy')}</Link></li>
                         <li><Link href="/terms" className="text-dimmed hover:text-purple-400 transition-colors">{t('nav.terms')}</Link></li>
                         <li className="flex justify-center md:justify-start space-x-4 pt-4">
-                            <Twitter className="w-5 h-5 text-white/20 hover:text-white transition-colors cursor-pointer" />
-                            <Github className="w-5 h-5 text-white/20 hover:text-white transition-colors cursor-pointer" />
-                            <Mail className="w-5 h-5 text-white/20 hover:text-white transition-colors cursor-pointer" />
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><Twitter className="w-5 h-5 text-white/20 hover:text-white transition-colors cursor-pointer" /></a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5 text-white/20 hover:text-white transition-colors cursor-pointer" /></a>
+                            <a href="mailto:monkeys_paradise@naver.com"><Mail className="w-5 h-5 text-white/20 hover:text-white transition-colors cursor-pointer" /></a>
                         </li>
                     </ul>
                 </div>
