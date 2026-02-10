@@ -136,7 +136,7 @@ export default function SoulmateMatchPage() {
                     <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-premium border border-white/10 animate-fade-in shadow-xl mx-auto">
                         <Heart className="w-4 h-4 text-pink-500 fill-pink-500/20" />
                         <span className="text-sm font-semibold tracking-widest uppercase text-dimmed">
-                            Destiny Sync v2.0
+                            {t('soulmate.destiny_sync')}
                         </span>
                     </div>
                     <div className="space-y-2">
@@ -168,7 +168,7 @@ export default function SoulmateMatchPage() {
                                     </div>
                                     <div className="space-y-2">
                                         <h3 className="text-2xl font-bold">{t('soulmate.mode_lover')}</h3>
-                                        <p className="text-white/40 text-sm">Destiny, Romance, Chemistry</p>
+                                        <p className="text-white/40 text-sm">{t('soulmate.desc_lover')}</p>
                                     </div>
                                 </button>
 
@@ -181,7 +181,7 @@ export default function SoulmateMatchPage() {
                                     </div>
                                     <div className="space-y-2">
                                         <h3 className="text-2xl font-bold">{t('soulmate.mode_friend')}</h3>
-                                        <p className="text-white/40 text-sm">Loyalty, Vibes, Connection</p>
+                                        <p className="text-white/40 text-sm">{t('soulmate.desc_friend')}</p>
                                     </div>
                                 </button>
                             </motion.div>
@@ -206,7 +206,7 @@ export default function SoulmateMatchPage() {
                                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 gap-2">
                                                     <input type="file" accept="image/*" onChange={handleImageUpload(1)} className="absolute inset-0 opacity-0 cursor-pointer z-10" />
                                                     <Upload className="w-10 h-10 text-white/20 group-hover:text-pink-400 transition-colors" />
-                                                    <span className="text-sm text-white/40">Drop or Click</span>
+                                                    <span className="text-sm text-white/40">{t('soulmate.drop_click')}</span>
                                                 </div>
                                             )}
                                         </div>
@@ -224,7 +224,7 @@ export default function SoulmateMatchPage() {
                                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 gap-2">
                                                     <input type="file" accept="image/*" onChange={handleImageUpload(2)} className="absolute inset-0 opacity-0 cursor-pointer z-10" />
                                                     <Upload className="w-10 h-10 text-white/20 group-hover:text-pink-400 transition-colors" />
-                                                    <span className="text-sm text-white/40">Drop or Click</span>
+                                                    <span className="text-sm text-white/40">{t('soulmate.drop_click')}</span>
                                                 </div>
                                             )}
                                         </div>
@@ -249,11 +249,11 @@ export default function SoulmateMatchPage() {
                                         ) : (
                                             <>
                                                 <ShieldCheck className="w-6 h-6" />
-                                                START SYNCING
+                                                {t('soulmate.start_sync')}
                                             </>
                                         )}
                                     </button>
-                                    <button onClick={() => setMode(null)} className="text-sm text-white/30 hover:text-white transition-colors block mx-auto underline">Change Mode</button>
+                                    <button onClick={() => setMode(null)} className="text-sm text-white/30 hover:text-white transition-colors block mx-auto underline">{t('soulmate.change_mode')}</button>
                                 </div>
                             </motion.div>
                         ) : (
@@ -309,7 +309,7 @@ export default function SoulmateMatchPage() {
                                                 className="w-full py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold flex items-center justify-center gap-3 hover:bg-white/10 transition-colors shadow-lg"
                                             >
                                                 {copied ? <Check className="w-5 h-5 text-green-400" /> : <Copy className="w-5 h-5" />}
-                                                {copied ? 'COPIED!' : 'COPY LINK'}
+                                                {copied ? t('soulmate.copied') : t('soulmate.copy_link')}
                                             </button>
                                             <button
                                                 onClick={() => { setShowResult(false); setImage1(null); setImage2(null); }}
@@ -348,7 +348,7 @@ export default function SoulmateMatchPage() {
                                                 <div className="bg-white/5 rounded-3xl p-6 border border-white/10 space-y-3">
                                                     <div className="flex items-center gap-2 text-pink-400">
                                                         <Target className="w-4 h-4" />
-                                                        <span className="text-xs font-bold uppercase tracking-widest italic font-mono">Vision Alignment</span>
+                                                        <span className="text-xs font-bold uppercase tracking-widest italic font-mono">{t('soulmate.vision_alignment')}</span>
                                                     </div>
                                                     <p className="text-xs text-white/50 leading-relaxed italic">
                                                         {t('soulmate.analysis.eyes')}
@@ -357,7 +357,7 @@ export default function SoulmateMatchPage() {
                                                 <div className="bg-white/5 rounded-3xl p-6 border border-white/10 space-y-3">
                                                     <div className="flex items-center gap-2 text-cyan-400">
                                                         <Zap className="w-4 h-4" />
-                                                        <span className="text-xs font-bold uppercase tracking-widest italic font-mono">Resonance Factor</span>
+                                                        <span className="text-xs font-bold uppercase tracking-widest italic font-mono">{t('soulmate.resonance_factor')}</span>
                                                     </div>
                                                     <p className="text-xs text-white/50 leading-relaxed italic">
                                                         {t('soulmate.analysis.smile')}
@@ -391,7 +391,7 @@ export default function SoulmateMatchPage() {
                                             <div className="glass-premium rounded-[2.5rem] p-8 border border-white/10 space-y-4">
                                                 <div className="flex items-center gap-3">
                                                     <Globe className="w-5 h-5 text-indigo-400" />
-                                                    <h3 className="text-sm font-bold tracking-[0.3em] uppercase text-white/50">Karma Sync</h3>
+                                                    <h3 className="text-sm font-bold tracking-[0.3em] uppercase text-white/50">{t('soulmate.karma_sync')}</h3>
                                                 </div>
                                                 <p className="text-sm font-light text-white/70 italic leading-relaxed">
                                                     {t('soulmate.analysis.aura')}
@@ -402,9 +402,9 @@ export default function SoulmateMatchPage() {
                                 </div>
 
                                 <div className="max-w-xl mx-auto w-full glass-premium rounded-3xl p-8 space-y-4 mt-8 opacity-60">
-                                    <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/50 text-center italic">Biometric Data Encryption Active</h4>
+                                    <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/50 text-center italic">{t('soulmate.encryption_active')}</h4>
                                     <p className="text-[10px] text-center text-white/30 uppercase font-mono tracking-widest">
-                                        Data analyzed locally via client-side faceapi.js. No images stored on servers.
+                                        {t('soulmate.encryption_desc')}
                                     </p>
                                 </div>
                             </motion.div>
@@ -416,10 +416,10 @@ export default function SoulmateMatchPage() {
                 {!showResult && (
                     <div className="mt-20 max-w-xl mx-auto">
                         <div className="bg-white/5 border border-white/10 rounded-3xl p-6 text-center">
-                            <span className="text-sm font-bold tracking-[0.3em] uppercase text-white/20 mb-2 block">Destiny Algorithm</span>
+                            <span className="text-sm font-bold tracking-[0.3em] uppercase text-white/20 mb-2 block">{t('soulmate.destiny_algorithm')}</span>
                             <div className="h-24 bg-black/40 rounded-2xl flex items-center justify-center border border-white/5 overflow-hidden relative">
                                 <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-pink-500/10" />
-                                <span className="text-white/10 italic text-sm relative z-10">Searching for biological resonance patterns...</span>
+                                <span className="text-white/10 italic text-sm relative z-10">{t('soulmate.searching_patterns')}</span>
                             </div>
                         </div>
                     </div>

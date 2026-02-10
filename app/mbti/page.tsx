@@ -50,6 +50,8 @@ export default function MBTIPage() {
 
     const handleRetry = () => {
         setStep('intro');
+        setAnswers([]);
+        setCurrentQuestionIndex(0);
     };
 
     return (
@@ -68,7 +70,7 @@ export default function MBTIPage() {
                             <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-premium border border-white/10 animate-fade-in shadow-xl mx-auto">
                                 <Sword className="w-4 h-4 text-mystic-night-gold" />
                                 <span className="text-sm font-semibold tracking-widest uppercase text-dimmed">
-                                    Legendary Quest
+                                    {t('mbti.legendary_quest', { defaultValue: 'Legendary Quest' })}
                                 </span>
                             </div>
                             <h1 className="text-3xl md:text-5xl font-bold text-gradient-stitch pb-2">
@@ -108,7 +110,11 @@ export default function MBTIPage() {
 
                             <div className="space-y-4">
                                 <span className="text-mystic-night-gold font-mono text-sm tracking-widest uppercase">
-                                    Trial {currentQuestionIndex + 1} of {mbtiQuestions.length}
+                                    {t('mbti.progress', {
+                                        current: currentQuestionIndex + 1,
+                                        total: mbtiQuestions.length,
+                                        defaultValue: `Trial ${currentQuestionIndex + 1} of ${mbtiQuestions.length}`
+                                    })}
                                 </span>
                                 <h2 className="text-2xl md:text-3xl font-medium leading-tight">
                                     {t(`mbti.q${mbtiQuestions[currentQuestionIndex].id}.text`)}
@@ -173,7 +179,7 @@ export default function MBTIPage() {
                                     <div className="flex flex-wrap gap-3">
                                         {result.traits.map((trait, i) => (
                                             <span key={i} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-bold tracking-widest uppercase text-white/60">
-                                                {trait}
+                                                {t(`mbti.trait.${trait.toLowerCase()}`, { defaultValue: trait })}
                                             </span>
                                         ))}
                                     </div>
@@ -199,21 +205,13 @@ export default function MBTIPage() {
                                                     {t('mbti.path_label')}
                                                 </h4>
                                             </div>
-                                            <p className="text-base text-white/90 leading-relaxed italic font-serif">
+                                            <p className="text-base text-mystic-night-gold/90 leading-relaxed font-medium">
                                                 {t(`mbti.char.${result.id}.hero_path`)}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="glass-premium rounded-3xl p-8 space-y-4">
-                                    <h4 className="text-sm font-bold tracking-[0.2em] uppercase text-white/50 text-center">{t('common.share_legend')}</h4>
-                                    <ShareSection
-                                        title={t(`mbti.char.${result.id}.name`)}
-                                        description={t(`mbti.char.${result.id}.desc`)}
-                                        shareText={t('mbti.share_text')}
-                                    />
-                                </div>
                             </div>
 
                             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">

@@ -113,7 +113,7 @@ export default function FacePassportPage() {
                 const harmony = Math.floor(Math.random() * 10) + 90; // 90-99%
                 const vibes = ["exotic", "classic", "modern", "royal", "friendly"];
                 const charms = ["eyes", "jawline", "harmony", "smile", "aura"];
-                const ranks = ["S+", "SSS", "Exotic Elite", "Legendary", "Alpha"];
+                const ranks = ["s_plus", "sss", "exotic_elite", "legendary", "alpha"];
 
                 setDetailedMetrics({
                     harmony,
@@ -139,7 +139,7 @@ export default function FacePassportPage() {
                     harmony: 88,
                     vibe: "natural",
                     charm: "auth",
-                    rank: "Alpha"
+                    rank: "alpha"
                 });
 
                 const others = faceCountries.filter(c => c.id !== faceCountries[randomIndex].id);
@@ -177,7 +177,7 @@ export default function FacePassportPage() {
                     <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-premium border border-white/10 animate-fade-in shadow-xl mx-auto">
                         <Plane className="w-4 h-4 text-cyan-400 rotate-45" />
                         <span className="text-sm font-semibold tracking-widest uppercase text-dimmed">
-                            Mystic Gateway
+                            {t('face.mystic_gateway')}
                         </span>
                     </div>
                     <div className="space-y-2">
@@ -221,8 +221,8 @@ export default function FacePassportPage() {
                                                 className="aspect-square rounded-3xl bg-white/5 border border-white/10 flex flex-col items-center justify-center p-8 cursor-pointer hover:bg-white/10 transition-all group"
                                             >
                                                 <Camera className="w-12 h-12 text-white/20 mb-4 group-hover:text-cyan-400 transition-colors" />
-                                                <h3 className="text-xl font-bold">Use Camera</h3>
-                                                <p className="text-white/40 text-sm mt-2">Capture your portrait live</p>
+                                                <h3 className="text-xl font-bold">{t('face.use_camera')}</h3>
+                                                <p className="text-white/40 text-sm mt-2">{t('face.camera_desc')}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -244,7 +244,7 @@ export default function FacePassportPage() {
                                             className="w-full max-w-sm mx-auto px-10 py-5 rounded-full bg-mystic-gradient text-white font-bold text-lg shadow-2xl flex items-center justify-center gap-3 animate-pulse"
                                         >
                                             <ShieldCheck className="w-6 h-6" />
-                                            START IMMIGRATION CHECK
+                                            {t('face.start_check')}
                                         </button>
                                     </div>
                                 )}
@@ -264,7 +264,7 @@ export default function FacePassportPage() {
                                         </div>
                                         <div className="space-y-2">
                                             <h3 className="text-2xl font-bold animate-pulse text-cyan-400">{t('face.analyzing')}</h3>
-                                            <p className="text-white/40 font-mono text-base uppercase tracking-widest">Processing Biometric Landmarks...</p>
+                                            <p className="text-white/40 font-mono text-base uppercase tracking-widest">{t('face.processing')}</p>
                                         </div>
                                     </div>
                                 )}
@@ -285,7 +285,7 @@ export default function FacePassportPage() {
                                     <div className="bg-[#121420] p-6 border-b border-white/5 flex justify-between items-center">
                                         <div className="flex items-center gap-2">
                                             <Globe className="w-5 h-5 text-cyan-400" />
-                                            <span className="text-sm font-bold tracking-[0.3em] uppercase text-dimmed">World Federation Passport</span>
+                                            <span className="text-sm font-bold tracking-[0.3em] uppercase text-dimmed">{t('face.passport_header')}</span>
                                         </div>
                                         <span className="text-cyan-400 font-mono text-sm">P&lt;REPUBLIC&lt;{result && t(`face.country.${result.id}.name`).toUpperCase()}</span>
                                     </div>
@@ -312,11 +312,11 @@ export default function FacePassportPage() {
                                             <div className="grid grid-cols-2 gap-4">
                                                 <div className="space-y-1 border-b border-white/5 pb-2">
                                                     <p className="text-sm uppercase text-white/50 tracking-widest font-bold font-mono">{t('face.label.name')}</p>
-                                                    <p className="text-lg font-bold text-white uppercase tracking-tighter">Citizen / One</p>
+                                                    <p className="text-lg font-bold text-white uppercase tracking-tighter">{t('face.citizen')}</p>
                                                 </div>
                                                 <div className="space-y-1 border-b border-white/5 pb-2">
                                                     <p className="text-sm uppercase text-white/40 tracking-widest font-bold">{t('face.label.authority')}</p>
-                                                    <p className="text-lg font-bold text-cyan-400 uppercase tracking-tighter">DreamAI HQ</p>
+                                                    <p className="text-lg font-bold text-cyan-400 uppercase tracking-tighter">{t('face.authority')}</p>
                                                 </div>
                                             </div>
 
@@ -392,7 +392,7 @@ export default function FacePassportPage() {
                                                     <div className="space-y-2">
                                                         <p className="text-sm font-bold tracking-widest text-white/40 uppercase">{t('face.metrics.rank')}</p>
                                                         <p className="text-3xl font-black text-cyan-400">
-                                                            {detailedMetrics.rank}
+                                                            {t(`face.rank.${detailedMetrics.rank}`)}
                                                         </p>
                                                     </div>
                                                 </div>
