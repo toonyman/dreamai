@@ -37,10 +37,12 @@ export default function Navigation() {
         return typeof window !== 'undefined' ? window.location.href : 'https://dreamai.vercel.app';
     };
 
-    const getShareText = () => {
-        return i18n.language === 'ko'
-            ? 'WhoAmI.zip: 당신의 영혼을 압축 해제하세요. 얼굴 분석, 꿈 해몽, MBTI 분위기까지!'
-            : 'WhoAmI.zip: Unzip Your Soul. Face scanning, Dream decoding, and MBTI vibes.';
+    const getMetaShareText = () => {
+        if (i18n.language === 'ko') {
+            return `AI가 나보다 나를 더 잘 안다고? 🧠 관상으로 보는 전생부터 얼굴 분석까지, 나에 대한 모든 것을 AI로 확인해보세요! #KnowYourself #AIVibe #DailyFun #AI분석`;
+        } else {
+            return `Does AI know you better than yourself? 🧠 From past life analysis to face vibes, discover everything about you through AI! #KnowYourself #AIVibe #DailyFun #AI분석`;
+        }
     };
 
     const handleCopyLink = async () => {
@@ -53,15 +55,42 @@ export default function Navigation() {
         }
     };
 
+    const getTwitterShareText = () => {
+        if (i18n.language === 'ko') {
+            return `심심할 때 하기 딱 좋은 AI 테스트 6가지 🚀
+
+꿈해몽 🌙
+MBTI 🧠
+전생 찾기 🏛️
+관상 궁합 💖
+얼굴 분석 📸
+동물상 찾기 🐶
+
+지금 바로 해보기:`;
+        } else {
+            return `6 Viral AI Tests to try when you're bored 🚀
+
+Dream 🌙
+MBTI 🧠
+Past Life 🏛️
+Love Match 💖
+Face Analysis 📸
+Animal Look-alike 🐶
+
+Try it now:`;
+        }
+    };
+
     const handleShareTwitter = () => {
         const url = encodeURIComponent(getShareUrl());
-        const text = encodeURIComponent(getShareText());
+        const text = encodeURIComponent(getTwitterShareText());
         window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
     };
 
     const handleShareFacebook = () => {
         const url = encodeURIComponent(getShareUrl());
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        const quote = encodeURIComponent(getMetaShareText());
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`, '_blank');
     };
 
     return (

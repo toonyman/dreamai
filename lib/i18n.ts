@@ -24,6 +24,7 @@ const resources = {
             "mbti.next": "Next Question",
             "mbti.result_title": "Your Legend Unfolds",
             "mbti.retry": "Try the Quest Again",
+            "mbti.share_text": "Found my true MBTI with AI analysis! 🧠 It discovered a side of me I never knew. What’s your type? #MBTI #PersonalityTest #AIPersonality #Psychology #WhoAmI",
             "mbti.character": "You are matching with",
             "mbti.analysis_label": "Quest Analysis",
             "mbti.path_label": "The Hero's Path",
@@ -152,6 +153,7 @@ const resources = {
             "face.result_desc": "Your face matches the characteristics of",
             "face.nonsense_title": "Hidden Destiny",
             "face.share": "Share Your Passport",
+            "face.share_text": "AI analyzed my face and found my best features! 📸 What's my vibe score? Check yours now! #FaceAnalysis #VibeCheck #AIFaceScan #BeautyAnalysis #FacialFeatures",
             "face.retry": "Try with Another Face",
 
             // Face Countries
@@ -294,7 +296,7 @@ const resources = {
             "soulmate.sync_status": "Synchronicity Status",
             "soulmate.retry": "Test Another Pair",
             "soulmate.share_title": "Share Your Destiny",
-            "soulmate.share_text": "Our face-based chemistry is {{score}}%! Check yours at WhoAmI.zip",
+            "soulmate.share_text": "Are we destined to be? 💖 AI analyzed our face compatibility and the score is {{score}}%! Tag your partner! #RelationshipGoals #LoveMatch #Compatibility #SoulmateTest #AICompatibility",
 
             "soulmate.analysis.eyes": "The alignment of your eyes suggests a shared vision of the future. You perceive the world through a similar lens of intuition.",
             "soulmate.analysis.smile": "Your smiles resonate at a frequency that balances each other's emotional highs and lows.",
@@ -325,7 +327,7 @@ const resources = {
             "pastlife.loading_3": "Synchronizing historical aura...",
             "pastlife.result_header": "Your Past Life Archive",
             "pastlife.desc_intro": "In your previous existence, you were:",
-            "pastlife.share_text": "I found out my past life was {{name}}! Check yours at WhoAmI.zip",
+            "pastlife.share_text": "I was {{name}} in my past life?! 🏛️ AI found my soul from the past. Who were you in your previous life? #PastLife #Reincarnation #AIPastLife #History #SoulJourney",
             "pastlife.retry": "Re-examine Soul",
             "pastlife.save": "Save Fragment",
             "pastlife.card_title": "Soul Archive",
@@ -373,6 +375,7 @@ const resources = {
             "interpretation.lucky_number": "Lucky Number",
             "interpretation.rarity_title": "Dream Rarity",
             "interpretation.share": "Share Result",
+            "interpretation.share_text": "Just decoded my weird dream with AI and the result is mind-blowing! 🌙✨ Curious about what your dreams mean? #DreamAnalysis #AIDreamInterpreter #Spirituality #DreamMeaning #DreamAI",
             "interpretation.analyze_another": "Analyze Another Dream",
             "interpretation.transcending": "Transcending the veil...",
             "interpretation.connection_severed": "Connection Severed",
@@ -441,6 +444,7 @@ const resources = {
             "mbti.next": "다음 질문",
             "mbti.result_title": "당신의 전설이 밝혀졌습니다",
             "mbti.retry": "퀘스트 다시 하기",
+            "mbti.share_text": "AI가 분석한 내 진짜 MBTI! 🧠 정교한 분석으로 나도 몰랐던 내 모습을 발견했어요. 여러분의 유형은 무엇인가요? #MBTI #MBTI검사 #성격테스트 #AI분석 #심리테스트",
             "mbti.character": "당신과 매칭되는 인물은",
             "mbti.analysis_label": "퀘스트 결과 심층 분석",
             "mbti.path_label": "당신에게 전하는 전설의 조언",
@@ -569,6 +573,7 @@ const resources = {
             "face.result_desc": "당신의 얼굴은 이 나라의 특성과 가장 일치합니다:",
             "face.nonsense_title": "숨겨진 운명 (병맛 관상)",
             "face.share": "패스포트 공유하기",
+            "face.share_text": "AI가 알려주는 내 얼굴의 매력 포인트! 📸 제 분위기 점수는 몇 점일까요? 지금 바로 확인해 보세요! #얼굴분석 #관상 #AI관상 #매력리포트 #첫인상테스트",
             "face.retry": "다른 사진으로 시도하기",
 
             "face.country.brazil.name": "브라질",
@@ -711,7 +716,7 @@ const resources = {
             "soulmate.save": "결과 이미지 저장",
             "soulmate.retry": "다른 궁합 확인하기",
             "soulmate.share_title": "나의 인연 공유하기",
-            "soulmate.share_text": "우리의 관상 궁합은 {{score}}%! WhoAmI.zip에서 확인해보세요.",
+            "soulmate.share_text": "우리 진짜 운명일까? 💖 AI가 분석한 우리 둘의 관상 궁합은 무려 {{score}}%! 같이 테스트해 볼 사람 태그! #궁합 #AI궁합 #연애심리 #커플테스트 #운명테스트",
 
             "soulmate.analysis.eyes": "두 사람의 눈매 정렬은 미래를 바라보는 공통된 비전을 시사합니다. 직관적인 통찰력을 공유하는 사이입니다.",
             "soulmate.analysis.smile": "미소의 곡선이 서로의 감정적 고조와 저조를 보완하는 주파수에서 공명하고 있습니다.",
@@ -742,7 +747,7 @@ const resources = {
             "pastlife.loading_3": "역사적 기운과 동기화 중...",
             "pastlife.result_header": "영혼의 기록 보관소",
             "pastlife.desc_intro": "당신의 이전 생애에서 당신은:",
-            "pastlife.share_text": "나의 전생은 {{name}}였습니다! WhoAmI.zip에서 확인해보세요.",
+            "pastlife.share_text": "내가 전생에 {{name}}이었다고?! 🏛️ 시대를 풍미했던 나의 과거 모습을 AI가 찾아냈습니다. 당신의 전생은? #전생테스트 #전생 #AI전생 #역사적인물 #시간여행",
             "pastlife.retry": "다시 조회하기",
             "pastlife.save": "결과 저장하기",
             "pastlife.card_title": "전생 연구소",
@@ -796,6 +801,7 @@ const resources = {
             // Interpretation Page
             "interpretation.title": "꿈 분석 결과",
             "interpretation.summary": "요약",
+            "interpretation.share_text": "방금 꾼 이상한 꿈, AI한테 물어봤더니 소름 돋는 결과가 나왔어요! 🌙✨ 당신의 꿈은 어떤 의미일까요? #꿈해몽 #AI꿈해몽 #오늘의꿈 #심리분석 #DreamAI",
             "interpretation.deep": "심층 해석",
             "interpretation.keywords": "행운의 상징 & 키워드",
             "interpretation.lucky_item": "행운의 아이템",

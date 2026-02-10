@@ -459,6 +459,7 @@ export default function FacePassportPage() {
                                     <ShareSection
                                         title={t(`face.country.${result?.id}.name`)}
                                         description={t(`face.country.${result?.id}.desc`)}
+                                        shareText={t('face.share_text')}
                                     />
                                 </div>
                             </motion.div>

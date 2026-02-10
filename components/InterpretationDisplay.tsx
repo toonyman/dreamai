@@ -144,6 +144,7 @@ export default function InterpretationDisplay({ dreamText, interpretation }: Int
                             <ShareSection
                                 title={interpretation.summary}
                                 description={interpretation.deepInterpretation.slice(0, 100) + '...'}
+                                shareText={t('interpretation.share_text')}
                             />
 
                             <div className="flex flex-col sm:flex-row gap-4">

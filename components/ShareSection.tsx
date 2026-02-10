@@ -8,16 +8,17 @@ interface ShareSectionProps {
     title: string;
     description: string;
     url?: string;
+    shareText?: string;
 }
 
-export default function ShareSection({ title, description, url }: ShareSectionProps) {
+export default function ShareSection({ title, description, url, shareText }: ShareSectionProps) {
     const { t } = useTranslation();
     const [copied, setCopied] = useState(false);
     const shareUrl = url || (typeof window !== 'undefined' ? window.location.href : '');
 
     const handleCopy = async () => {
         try {
-            await navigator.clipboard.writeText(`${title}\n${description}\n${shareUrl}`);
+            await navigator.clipboard.writeText(`${shareText || title + '\n' + description}\n${shareUrl}`);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
@@ -26,12 +27,13 @@ export default function ShareSection({ title, description, url }: ShareSectionPr
     };
 
     const shareTwitter = () => {
-        const text = `${title}\n${description}`;
+        const text = shareText || `${title}\n${description}`;
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
     };
 
     const shareFacebook = () => {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+        const quote = shareText || title;
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}`, '_blank');
     };
 
     return (

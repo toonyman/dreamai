@@ -211,6 +211,7 @@ export default function MBTIPage() {
                                     <ShareSection
                                         title={t(`mbti.char.${result.id}.name`)}
                                         description={t(`mbti.char.${result.id}.desc`)}
+                                        shareText={t('mbti.share_text')}
                                     />
                                 </div>
                             </div>
