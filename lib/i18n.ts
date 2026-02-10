@@ -1089,6 +1089,110 @@ const resources = {
             "common.error": "エラーが発生しました。もう一度お試しください。",
             "common.success": "成功！",
         }
+    },
+    de: {
+        translation: {
+            // Navigation
+            "nav.home": "Startseite",
+            "nav.language": "Sprache",
+            "nav.mbti": "MBTI Labor",
+            "nav.face": "Gesichtsanalyse",
+            "nav.dream": "Traumdeutung",
+            "nav.soulmate": "Seelenverwandter",
+            "nav.pastlife": "Früheres Leben",
+            "nav.privacy": "Datenschutz",
+            "nav.terms": "AGB",
+
+            // Home Page
+            "home.title": "Traumdeutung",
+            "home.subtitle": "Entdecke die verborgenen Bedeutungen deiner Träume",
+            "home.placeholder": "Beschreibe deinen Traum im Detail...",
+            "home.submit": "Traum deuten",
+            "home.loading": "Analysiere deinen Traum...",
+            "home.ai_insights": "KI-gestützte Einblicke",
+            "home.lens_title": "Wähle deine Perspektive",
+            "home.char_count": "Zeichen",
+
+            // MBTI
+            "mbti.title": "Artus-Saga MBTI",
+            "mbti.subtitle": "Welcher Ritter der Tafelrunde entspricht deiner Seele?",
+            "mbti.start": "Quest starten",
+            "mbti.next": "Nächste Frage",
+            "mbti.result_title": "Deine Legende enthüllt",
+            "mbti.retry": "Quest wiederholen",
+            "mbti.character": "Du entsprichst",
+            "mbti.share_text": "Mein wahrer MBTI, analysiert von KI! 🧠 Entdecke deine Ritter-Persönlichkeit. #MBTI #Persönlichkeitstest #WhoAmI",
+
+            // FacePassport
+            "face.title": "Gesichtsanalyse",
+            "face.subtitle": "Dein globales Gesichtswert-Ranking.",
+            "face.upload_title": "Foto hochladen oder aufnehmen",
+            "face.upload_desc": "Dein Foto wird lokal verarbeitet und verlässt niemals dein Gerät.",
+            "face.analyzing": "Grenzkontrolle analysiert dein Gesicht...",
+            "face.approved": "GENEHMIGT",
+            "face.result_desc": "Dein Gesicht entspricht den Merkmalen von",
+            "face.share": "Pass teilen",
+            "face.retry": "Mit anderem Gesicht versuchen",
+
+            // Common
+            "common.share_identity": "Identität teilen",
+            "common.share_legend": "Legende teilen",
+            "common.copy_interpretation": "Deutung kopieren",
+            "common.success": "Erfolg!",
+            "common.return_home": "Zurück zum Dashboard"
+        }
+    },
+    zh: {
+        translation: {
+            // Navigation
+            "nav.home": "首页",
+            "nav.language": "语言",
+            "nav.mbti": "MBTI实验室",
+            "nav.face": "面相分析",
+            "nav.dream": "梦境解析",
+            "nav.soulmate": "灵魂伴侣",
+            "nav.pastlife": "前世测试",
+            "nav.privacy": "隐私政策",
+            "nav.terms": "服务条款",
+
+            // Home Page
+            "home.title": "AI梦境解析",
+            "home.subtitle": "探索梦境中隐藏的含义",
+            "home.placeholder": "请详细描述你的梦境...",
+            "home.submit": "解析梦境",
+            "home.loading": "正在分析您的梦境...",
+            "home.ai_insights": "AI驱动的潜意识洞察",
+            "home.lens_title": "选择解析视角",
+            "home.char_count": "字数",
+
+            // MBTI
+            "mbti.title": "亚瑟王传说 MBTI",
+            "mbti.subtitle": "哪位圆桌骑士与你的灵魂共鸣？",
+            "mbti.start": "开始探索",
+            "mbti.next": "下一题",
+            "mbti.result_title": "你的传奇已揭晓",
+            "mbti.retry": "重新探索",
+            "mbti.character": "你匹配的角色是",
+            "mbti.share_text": "AI分析了我的真实MBTI！🧠 发现了我未曾知晓的一面。你的类型是什么？ #MBTI #人格测试 #WhoAmI",
+
+            // FacePassport
+            "face.title": "面相分析",
+            "face.subtitle": "你的全球面相价值排名。",
+            "face.upload_title": "上传或拍摄照片",
+            "face.upload_desc": "您的照片仅在本地处理，绝不会上传至服务器。",
+            "face.analyzing": "边境管制正在分析您的面相...",
+            "face.approved": "通过",
+            "face.result_desc": "您的面相特征最匹配",
+            "face.share": "分享护照",
+            "face.retry": "尝试其他照片",
+
+            // Common
+            "common.share_identity": "分享身份",
+            "common.share_legend": "分享传奇",
+            "common.copy_interpretation": "复制解析",
+            "common.success": "成功！",
+            "common.return_home": "返回首页"
+        }
     }
 };
 

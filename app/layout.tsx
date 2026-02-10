@@ -12,10 +12,14 @@ export const metadata: Metadata = {
         default: "WhoAmI.zip: AI Personality & Face Analysis",
         template: "%s | WhoAmI.zip"
     },
-    description: "AI가 나보다 나를 더 잘 안다고? 🧠 관상, 꿈해몽, MBTI, 전생까지. 나에 대한 모든 것을 AI로 확인해보세요! Does AI know you better than yourself? Verify everything about you.",
+    description: "AI가 나보다 나를 더 잘 안다고? 🧠 관상, 꿈해몽, MBTI, 전생. AI Face Analysis & Dream Meaning. AIによる顔診断と夢占い. Análisis facial y sueños con IA. 和AI一起探索未知的自己. KI-Gesichtsanalyse & Traumdeutung.",
     keywords: [
         "WhoAmI.zip", "AI Face Analysis", "Dream Meaning", "MBTI Test", "Past Life Test", "Soulmate Match",
-        "관상 테스트", "꿈해몽", "MBTI 검사", "전생 테스트", "얼굴 궁합", "AI 분석"
+        "관상 테스트", "꿈해몽", "MBTI 검사", "전생 테스트", "얼굴 궁합", "AI 분석",
+        "AI顔診断", "夢占い", "MBTI診断", "前世診断", "相性診断", "顔相",
+        "Análisis facial AI", "Significado de los sueños", "Test MBTI", "Vidas pasadas", "Compatibilidad", "Interpretación de sueños",
+        "AI面相", "解梦", "MBTI测试", "前世", "灵魂伴侣",
+        "KI Gesichtsanalyse", "Traumdeutung", "MBTI Test", "Früheres Leben", "Seelenverwandter"
     ],
     authors: [{ name: "WhoAmI.zip" }],
     creator: "WhoAmI.zip",
@@ -35,6 +39,7 @@ export const metadata: Metadata = {
         url: 'https://dreamai-eight.vercel.app',
         siteName: 'WhoAmI.zip',
         locale: 'ko_KR',
+        alternateLocale: ['en_US', 'ja_JP', 'es_ES', 'de_DE', 'zh_CN'],
         type: 'website',
         images: [
             {
@@ -48,7 +53,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'WhoAmI.zip: AI Personality & Face Analysis',
-        description: "6 Viral AI Tests: Dream, MBTI, Past Life, Soulmate, Face Analysis. Try it when you're bored! 🚀",
+        description: "6 Viral AI Tests: Dream, MBTI, Past Life, Soulmate, Face Analysis. 夢占い, 顔診断. 解梦, 面相. 🚀",
         images: ['https://dreamai-eight.vercel.app/whoamiThumnail.png'],
     },
     robots: {

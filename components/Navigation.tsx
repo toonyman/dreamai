@@ -27,6 +27,8 @@ export default function Navigation() {
         { code: 'ko', name: '한국어' },
         { code: 'es', name: 'Español' },
         { code: 'ja', name: '日本語' },
+        { code: 'de', name: 'Deutsch' },
+        { code: 'zh', name: '中文' },
     ];
 
     const changeLanguage = (lng: string) => {
