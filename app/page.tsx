@@ -119,35 +119,41 @@ export default function Home() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-12">
-                    <div className="space-y-4 text-center p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
-                        <div className="w-12 h-12 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <span className="text-2xl font-bold text-purple-400">01</span>
+                <div className="max-w-4xl mx-auto glass-premium rounded-[2.5rem] border border-white/10 overflow-hidden divide-y divide-white/10 shadow-2xl">
+                    <div className="group flex flex-col md:flex-row items-center md:items-start gap-8 p-10 md:p-12 hover:bg-white/[0.02] transition-all text-center md:text-left">
+                        <div className="w-16 h-16 shrink-0 bg-purple-500/20 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/10 transition-transform group-hover:scale-110 duration-500">
+                            <span className="text-3xl font-bold text-purple-400">01</span>
                         </div>
-                        <h3 className="text-xl font-bold text-white">{t('home.step1_title')}</h3>
-                        <p className="text-sm text-dimmed leading-relaxed">
-                            {t('home.step1_desc')}
-                        </p>
+                        <div className="space-y-3">
+                            <h3 className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors uppercase tracking-tight">{t('home.step1_title')}</h3>
+                            <p className="text-dimmed leading-relaxed text-lg font-light">
+                                {t('home.step1_desc')}
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="space-y-4 text-center p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all">
-                        <div className="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <span className="text-2xl font-bold text-indigo-400">02</span>
+                    <div className="group flex flex-col md:flex-row items-center md:items-start gap-8 p-10 md:p-12 hover:bg-white/[0.02] transition-all text-center md:text-left">
+                        <div className="w-16 h-16 shrink-0 bg-indigo-500/20 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-500/10 transition-transform group-hover:scale-110 duration-500">
+                            <span className="text-3xl font-bold text-indigo-400">02</span>
                         </div>
-                        <h3 className="text-xl font-bold text-white">{t('home.step2_title')}</h3>
-                        <p className="text-sm text-dimmed leading-relaxed">
-                            {t('home.step2_desc')}
-                        </p>
+                        <div className="space-y-3">
+                            <h3 className="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors uppercase tracking-tight">{t('home.step2_title')}</h3>
+                            <p className="text-dimmed leading-relaxed text-lg font-light">
+                                {t('home.step2_desc')}
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="space-y-4 text-center p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-amber-500/30 transition-all">
-                        <div className="w-12 h-12 bg-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <span className="text-2xl font-bold text-amber-400">03</span>
+                    <div className="group flex flex-col md:flex-row items-center md:items-start gap-8 p-10 md:p-12 hover:bg-white/[0.02] transition-all text-center md:text-left">
+                        <div className="w-16 h-16 shrink-0 bg-amber-500/20 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/10 transition-transform group-hover:scale-110 duration-500">
+                            <span className="text-3xl font-bold text-amber-400">03</span>
                         </div>
-                        <h3 className="text-xl font-bold text-white">{t('home.step3_title')}</h3>
-                        <p className="text-sm text-dimmed leading-relaxed">
-                            {t('home.step3_desc')}
-                        </p>
+                        <div className="space-y-3">
+                            <h3 className="text-2xl font-bold text-white group-hover:text-amber-300 transition-colors uppercase tracking-tight">{t('home.step3_title')}</h3>
+                            <p className="text-dimmed leading-relaxed text-lg font-light">
+                                {t('home.step3_desc')}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

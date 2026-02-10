@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         type: 'website',
         images: [
             {
-                url: '/og-image.png',
+                url: '/whoamiThumnail.png',
                 width: 1200,
                 height: 630,
                 alt: 'WhoAmI.zip - Unzip Your Soul',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'WhoAmI.zip: Unzip Your Soul',
         description: 'Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place.',
-        images: ['/og-image.png'],
+        images: ['/whoamiThumnail.png'],
     },
     robots: {
         index: true,
