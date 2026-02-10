@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         type: 'website',
         images: [
             {
-                url: '/whoamiThumnail.png',
+                url: 'https://dreamai.vercel.app/whoamiThumnail.png',
                 width: 1200,
                 height: 630,
                 alt: 'WhoAmI.zip - AI Analysis Platform',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'WhoAmI.zip: AI Personality & Face Analysis',
         description: "6 Viral AI Tests: Dream, MBTI, Past Life, Soulmate, Face Analysis. Try it when you're bored! 🚀",
-        images: ['/whoamiThumnail.png'],
+        images: ['https://dreamai.vercel.app/whoamiThumnail.png'],
     },
     robots: {
         index: true,
