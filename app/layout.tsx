@@ -8,18 +8,14 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "WhoAmI.zip: Unzip Your Soul",
-    description: "Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place. Analyze your global face value, turn weird dreams into logic, and discover your hidden personality layers.",
+    title: {
+        default: "WhoAmI.zip: AI Personality & Face Analysis",
+        template: "%s | WhoAmI.zip"
+    },
+    description: "AI가 나보다 나를 더 잘 안다고? 🧠 관상, 꿈해몽, MBTI, 전생까지. 나에 대한 모든 것을 AI로 확인해보세요! Does AI know you better than yourself? Verify everything about you.",
     keywords: [
-        "WhoAmI.zip",
-        "face analysis",
-        "dream analysis",
-        "MBTI test",
-        "personality layers",
-        "face value ranking",
-        "꿈 해몽",
-        "관상 분석",
-        "성격 테스트"
+        "WhoAmI.zip", "AI Face Analysis", "Dream Meaning", "MBTI Test", "Past Life Test", "Soulmate Match",
+        "관상 테스트", "꿈해몽", "MBTI 검사", "전생 테스트", "얼굴 궁합", "AI 분석"
     ],
     authors: [{ name: "WhoAmI.zip" }],
     creator: "WhoAmI.zip",
@@ -32,33 +28,27 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://dreamai.vercel.app'),
     alternates: {
         canonical: '/',
-        languages: {
-            'en': '/en',
-            'ko': '/ko',
-            'es': '/es',
-            'ja': '/ja',
-        },
     },
     openGraph: {
-        title: "WhoAmI.zip: Unzip Your Soul",
-        description: "Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place.",
+        title: "WhoAmI.zip: AI가 분석하는 나의 모든 것",
+        description: "AI가 나보다 나를 더 잘 안다고? 🧠 관상으로 보는 전생부터 얼굴 분석까지! 지금 바로 확인해보세요.",
         url: 'https://dreamai.vercel.app',
         siteName: 'WhoAmI.zip',
-        locale: 'en_US',
+        locale: 'ko_KR',
         type: 'website',
         images: [
             {
                 url: '/whoamiThumnail.png',
                 width: 1200,
                 height: 630,
-                alt: 'WhoAmI.zip - Unzip Your Soul',
+                alt: 'WhoAmI.zip - AI Analysis Platform',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'WhoAmI.zip: Unzip Your Soul',
-        description: 'Face scanning, Dream decoding, and MBTI vibes. Everything about YOU in one place.',
+        title: 'WhoAmI.zip: AI Personality & Face Analysis',
+        description: "6 Viral AI Tests: Dream, MBTI, Past Life, Soulmate, Face Analysis. Try it when you're bored! 🚀",
         images: ['/whoamiThumnail.png'],
     },
     robots: {
