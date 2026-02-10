@@ -94,25 +94,29 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #020205;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.4);
   border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.8);
+  background: rgba(139, 92, 246, 0.7);
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(139, 92, 246, 0.5) #020205;
+  scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
 }
 
 button:disabled {
@@ -121,9 +125,23 @@ button:disabled {
 }
 
 .text-dimmed {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.85);
+  /* Brightened from 0.65 */
 }
 
 .text-subtle {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.65);
+  /* Brightened from 0.45 */
+}
+
+html {
+  font-size: 16px;
+  /* Base font size */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+    /* Slightly smaller for mobile if needed, but keeping it legible */
+  }
 }

@@ -80,21 +80,21 @@ export default function Navigation() {
                     </Link>
 
                     {/* Desktop Actions */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden lg:flex items-center space-x-8">
                         <div className="flex items-center space-x-6 mr-4 border-r border-white/10 pr-6">
-                            <Link href="/dream-analysis" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-purple-400 transition-all">
+                            <Link href="/dream-analysis" className="text-sm font-medium tracking-wider uppercase text-white/50 hover:text-purple-400 transition-all">
                                 {t('nav.dream')}
                             </Link>
-                            <Link href="/mbti" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-mystic-night-gold transition-all">
+                            <Link href="/mbti" className="text-sm font-medium tracking-wider uppercase text-white/50 hover:text-mystic-night-gold transition-all">
                                 {t('nav.mbti')}
                             </Link>
-                            <Link href="/soulmate" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-pink-400 transition-all">
+                            <Link href="/soulmate" className="text-sm font-medium tracking-wider uppercase text-white/50 hover:text-pink-400 transition-all">
                                 {t('nav.soulmate')}
                             </Link>
-                            <Link href="/face-passport" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-cyan-400 transition-all">
+                            <Link href="/face-passport" className="text-sm font-medium tracking-wider uppercase text-white/50 hover:text-cyan-400 transition-all">
                                 {t('nav.face')}
                             </Link>
-                            <Link href="/past-life" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-amber-500 transition-all">
+                            <Link href="/past-life" className="text-sm font-medium tracking-wider uppercase text-white/50 hover:text-amber-500 transition-all">
                                 {t('nav.pastlife')}
                             </Link>
                         </div>
@@ -121,7 +121,7 @@ export default function Navigation() {
 
                         {/* Language Selector */}
                         <div className="relative group">
-                            <button className="flex items-center gap-3 text-sm font-bold tracking-wider uppercase text-white/50 hover:text-white transition-all">
+                            <button className="flex items-center gap-3 text-sm font-medium tracking-wider uppercase text-white/50 hover:text-white transition-all">
                                 <Globe className="w-4 h-4" />
                                 {languages.find(l => l.code === i18n.language)?.name || 'Language'}
                             </button>
@@ -143,7 +143,7 @@ export default function Navigation() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsOpen(true)}
-                        className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
+                        className="lg:hidden p-2 text-white/60 hover:text-white transition-colors"
                     >
                         <Menu className="w-6 h-6" />
                     </button>
@@ -154,47 +154,64 @@ export default function Navigation() {
             {isOpen && (
                 <div className="fixed inset-0 z-[1000] flex justify-end">
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={() => setIsOpen(false)} />
-                    <div className="relative w-full max-w-xs h-full bg-black/90 glass-premium border-l border-white/10 p-10 flex flex-col animate-in slide-in-from-right duration-500">
-                        <button onClick={() => setIsOpen(false)} className="self-end p-4 text-white/40 hover:text-white mb-12 transition-colors">
-                            <X className="w-8 h-8 font-light" />
-                        </button>
-
-                        <div className="space-y-6 pt-12 border-t border-white/10">
-                            <p className="text-sm font-bold tracking-widest uppercase text-white/20">Menu</p>
-                            <div className="space-y-4">
-                                <Link href="/dream-analysis" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.dream')}</Link>
-                                <Link href="/mbti" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.mbti')}</Link>
-                                <Link href="/soulmate" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.soulmate')}</Link>
-                                <Link href="/face-passport" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.face')}</Link>
-                                <Link href="/past-life" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.pastlife')}</Link>
-                            </div>
+                    <div className="relative w-full max-w-[280px] h-full bg-black/90 glass-premium border-l border-white/10 flex flex-col animate-in slide-in-from-right duration-500 overflow-hidden">
+                        {/* Header with Close Button */}
+                        <div className="sticky top-0 z-20 bg-black/40 backdrop-blur-3xl px-8 py-6 flex justify-end">
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className="p-2 text-white/60 hover:text-white transition-colors rounded-full hover:bg-white/10"
+                            >
+                                <X className="w-8 h-8" />
+                            </button>
                         </div>
 
-                        <div className="space-y-6 pt-12 border-t border-white/10">
-                            <p className="text-sm font-bold tracking-widest uppercase text-white/20">Languages</p>
-                            <div className="space-y-4">
-                                {languages.map((lang) => (
-                                    <button
-                                        key={lang.code}
-                                        onClick={() => {
-                                            changeLanguage(lang.code);
-                                            setIsOpen(false);
-                                        }}
-                                        className={`block w-full text-left py-2 text-xl font-light transition-colors ${i18n.language === lang.code ? 'text-purple-400' : 'text-white/40'
-                                            }`}
-                                    >
-                                        {lang.name}
+                        {/* Scrollable Content */}
+                        <div className="flex-1 overflow-y-auto px-8 pb-12 space-y-12">
+                            <div className="space-y-6 pt-4">
+                                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-white/40 border-b border-white/10 pb-2">Menu</p>
+                                <div className="space-y-4">
+                                    <Link href="/dream-analysis" onClick={() => setIsOpen(false)} className="block text-2xl font-light text-white/80 hover:text-purple-400 transition-colors leading-tight">{t('nav.dream')}</Link>
+                                    <Link href="/mbti" onClick={() => setIsOpen(false)} className="block text-2xl font-light text-white/80 hover:text-mystic-night-gold transition-colors leading-tight">{t('nav.mbti')}</Link>
+                                    <Link href="/soulmate" onClick={() => setIsOpen(false)} className="block text-2xl font-light text-white/80 hover:text-pink-400 transition-colors leading-tight">{t('nav.soulmate')}</Link>
+                                    <Link href="/face-passport" onClick={() => setIsOpen(false)} className="block text-2xl font-light text-white/80 hover:text-cyan-400 transition-colors leading-tight">{t('nav.face')}</Link>
+                                    <Link href="/past-life" onClick={() => setIsOpen(false)} className="block text-2xl font-light text-white/80 hover:text-amber-500 transition-colors leading-tight">{t('nav.pastlife')}</Link>
+                                </div>
+                            </div>
+
+                            <div className="space-y-6">
+                                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-white/40 border-b border-white/10 pb-2">Languages</p>
+                                <div className="grid grid-cols-1 gap-3">
+                                    {languages.map((lang) => (
+                                        <button
+                                            key={lang.code}
+                                            onClick={() => {
+                                                changeLanguage(lang.code);
+                                                setIsOpen(false);
+                                            }}
+                                            className={`block w-full text-left px-5 py-3 rounded-2xl text-lg font-medium transition-all ${i18n.language === lang.code
+                                                ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20 shadow-[0_0_20px_rgba(168,85,247,0.15)]'
+                                                : 'text-white/60 hover:text-white hover:bg-white/5 border border-transparent'
+                                                }`}
+                                        >
+                                            {lang.name}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="space-y-6 border-t border-white/10 pt-8">
+                                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-white/40">Connect</p>
+                                <div className="flex gap-6">
+                                    <button onClick={handleShareTwitter} className="p-3 rounded-2xl bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-white/30 transition-all">
+                                        <Twitter className="w-6 h-6" />
                                     </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="space-y-6 pt-12 border-t border-white/10">
-                            <p className="text-sm font-bold tracking-widest uppercase text-white/20">Connect</p>
-                            <div className="flex gap-8">
-                                <Twitter className="w-6 h-6 text-white/40 cursor-pointer hover:text-white transition-colors" onClick={handleShareTwitter} />
-                                <Facebook className="w-6 h-6 text-white/40 cursor-pointer hover:text-white transition-colors" onClick={handleShareFacebook} />
-                                <LinkIcon className="w-6 h-6 text-white/40 cursor-pointer hover:text-white transition-colors" onClick={handleCopyLink} />
+                                    <button onClick={handleShareFacebook} className="p-3 rounded-2xl bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-white/30 transition-all">
+                                        <Facebook className="w-6 h-6" />
+                                    </button>
+                                    <button onClick={handleCopyLink} className="p-3 rounded-2xl bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-white/30 transition-all">
+                                        <LinkIcon className="w-6 h-6" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

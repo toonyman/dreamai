@@ -407,8 +407,12 @@ const resources = {
             "home.step1_desc": "Our Face Analysis uses local computer vision to identify global aesthetic patterns without uploading your data.",
             "home.step2_title": "Dream Semantics",
             "home.step2_desc": "We apply Large Language Models to map dream imagery to psychological archetypes and cultural symbols.",
-            "home.step3_title": "Legend Synthesis",
-            "home.step3_desc": "Finally, we cross-reference your traits with historical legends and MBTI layers to give you a complete profile.",
+            "home.step3_title": "MBTI Resonance",
+            "home.step3_desc": "Personality layers are decoded using behavioral resonance algorithms based on Jungian archetypes.",
+            "home.step4_title": "Synchronicity Index",
+            "home.step4_desc": "Our Soulmate Lab calculates the chemical alignment of two identities through shared data features.",
+            "home.step5_title": "Chronos Archive",
+            "home.step5_desc": "Deterministic hashing maps your present traits to historical patterns stored in our soul archive.",
 
             // Legal
             "privacy.title": "Privacy Policy",
@@ -775,9 +779,18 @@ const resources = {
             "home.about_title": "WhoAmI.zip 소개",
             "home.about_description": "WhoAmI.zip은 당신의 디지털 정체성 실험실입니다. 첨단 AI 얼굴 분석, 심리학적 꿈 해독, 그리고 심층 성격 분석을 결합하여 압축된 당신의 영혼을 해제합니다. 글로벌 외모 가치부터 무의식의 논리, 성격의 숨겨진 층위까지—당신에 대한 모든 것이 이곳에 있습니다. 지금 바로 당신을 압축 해제하세요.",
 
-            // SEO
-            "seo.title": "무료 AI 꿈 해몽 - 꿈의 의미를 발견하세요",
-            "seo.description": "AI 기반 꿈 분석과 해몽을 즉시 받아보세요. 무료 다국어 서비스로 꿈의 심리학적 의미를 이해하세요.",
+            "home.how_it_works_title": "무의식의 과학",
+            "home.how_it_works_desc": "WhoAmI.zip이 당신의 디지털 및 영적 정체성을 해제하는 방법.",
+            "home.step1_title": "AI 이미지 프로세싱",
+            "home.step1_desc": "얼굴 분석은 로컬 컴퓨터 버전 기술을 사용하여 데이터를 전송하지 않고 글로벌 미학 패턴을 식별합니다.",
+            "home.step2_title": "꿈 의미론 분석",
+            "home.step2_desc": "거대 언어 모델(LLM)을 적용하여 꿈의 이미지를 심리학적 원형과 문화적 상징에 매핑합니다.",
+            "home.step3_title": "MBTI 공명 인덱스",
+            "home.step3_desc": "융의 심리학 원형을 기반으로 한 행동 공명 알고리즘을 통해 성격의 층위를 해독합니다.",
+            "home.step4_title": "동시성 지수 연산",
+            "home.step4_desc": "궁합 Lab은 공통 데이터 특징을 통해 두 정체성 사이의 화학적 정렬도를 계산합니다.",
+            "home.step5_title": "전생 아카이브 매핑",
+            "home.step5_desc": "결정론적 해싱을 통해 현재의 당신의 특성을 소울 아카이브에 저장된 역사적 패턴과 연결합니다.",
 
             // Interpretation Page
             "interpretation.title": "꿈 분석 결과",
@@ -814,16 +827,6 @@ const resources = {
             // Common
             "common.error": "오류가 발생했습니다. 다시 시도해주세요.",
             "common.success": "성공!",
-
-            // How it works
-            "home.how_it_works_title": "무의식의 과학",
-            "home.how_it_works_desc": "WhoAmI.zip이 당신의 디지털 및 영적 정체성을 해독하는 방법입니다.",
-            "home.step1_title": "AI 이미지 프로세싱",
-            "home.step1_desc": "얼굴 분석은 로컬 컴퓨터 비전을 사용하여 데이터를 업로드하지 않고도 글로벌 미적 패턴을 식별합니다.",
-            "home.step2_title": "꿈의 의미론",
-            "home.step2_desc": "대규모 언어 모델을 적용하여 꿈의 이미지를 심리학적 원형과 문화적 상징에 매핑합니다.",
-            "home.step3_title": "전설의 합성",
-            "home.step3_desc": "마지막으로, 당신의 특성을 역사적 전설 및 MBTI 층과 교차 참조하여 완전한 프로필을 제공합니다.",
 
             // Legal
             "privacy.title": "개인정보처리방침",

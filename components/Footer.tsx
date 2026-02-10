@@ -19,9 +19,11 @@ export default function Footer() {
 
                 <div className="space-y-4">
                     <h4 className="text-sm font-bold tracking-widest uppercase text-white/40">Lab Links</h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 text-sm">
                         <li><Link href="/dream-analysis" className="text-dimmed hover:text-purple-400 transition-colors">{t('nav.dream')}</Link></li>
                         <li><Link href="/mbti" className="text-dimmed hover:text-purple-400 transition-colors">{t('nav.mbti')}</Link></li>
+                        <li><Link href="/past-life" className="text-dimmed hover:text-purple-400 transition-colors">{t('nav.pastlife')}</Link></li>
+                        <li><Link href="/soulmate" className="text-dimmed hover:text-purple-400 transition-colors">{t('nav.soulmate')}</Link></li>
                         <li><Link href="/face-passport" className="text-dimmed hover:text-purple-400 transition-colors">{t('nav.face')}</Link></li>
                     </ul>
                 </div>

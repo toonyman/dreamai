@@ -105,7 +105,7 @@ export default function Home() {
                                         <h2 className="text-xl font-bold tracking-tight group-hover:text-gradient-stitch transition-all">
                                             {t(item.title)}
                                         </h2>
-                                        <p className="text-xs text-white/40 leading-relaxed font-light line-clamp-2">
+                                        <p className="text-sm text-white/60 leading-relaxed font-light line-clamp-2">
                                             {t(item.desc)}
                                         </p>
                                     </div>
@@ -137,42 +137,27 @@ export default function Home() {
                     </p>
                 </div>
 
-                <div className="max-w-3xl mx-auto glass-premium rounded-[2rem] border border-white/10 overflow-hidden divide-y divide-white/5 shadow-2xl">
-                    <div className="group flex items-center gap-6 p-6 md:p-8 hover:bg-white/[0.01] transition-all text-left">
-                        <div className="w-12 h-12 shrink-0 bg-purple-500/10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500">
-                            <span className="text-xl font-bold text-purple-400/60">01</span>
+                <div className="max-w-3xl mx-auto glass-premium rounded-[2.5rem] border border-white/10 overflow-hidden divide-y divide-white/5 shadow-2xl">
+                    {[1, 2, 3, 4, 5].map((step) => (
+                        <div key={step} className="group flex items-center gap-6 p-6 md:p-8 hover:bg-white/[0.02] transition-all text-left">
+                            <div className={`w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500 ${step === 1 ? 'bg-purple-500/10 text-purple-400' :
+                                step === 2 ? 'bg-indigo-500/10 text-indigo-400' :
+                                    step === 3 ? 'bg-amber-500/10 text-amber-400' :
+                                        step === 4 ? 'bg-pink-500/10 text-pink-400' :
+                                            'bg-cyan-500/10 text-cyan-400'
+                                }`}>
+                                <span className="text-xl font-black opacity-80">{step.toString().padStart(2, '0')}</span>
+                            </div>
+                            <div className="space-y-1.5">
+                                <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors uppercase tracking-tight">
+                                    {t(`home.step${step}_title`)}
+                                </h3>
+                                <p className="text-white/80 leading-relaxed text-sm font-light">
+                                    {t(`home.step${step}_desc`)}
+                                </p>
+                            </div>
                         </div>
-                        <div className="space-y-1">
-                            <h3 className="text-lg font-bold text-white/80 group-hover:text-purple-300 transition-colors uppercase tracking-tight">{t('home.step1_title')}</h3>
-                            <p className="text-dimmed leading-relaxed text-sm font-light">
-                                {t('home.step1_desc')}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="group flex items-center gap-6 p-6 md:p-8 hover:bg-white/[0.01] transition-all text-left">
-                        <div className="w-12 h-12 shrink-0 bg-indigo-500/10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500">
-                            <span className="text-xl font-bold text-indigo-400/60">02</span>
-                        </div>
-                        <div className="space-y-1">
-                            <h3 className="text-lg font-bold text-white/80 group-hover:text-indigo-300 transition-colors uppercase tracking-tight">{t('home.step2_title')}</h3>
-                            <p className="text-dimmed leading-relaxed text-sm font-light">
-                                {t('home.step2_desc')}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="group flex items-center gap-6 p-6 md:p-8 hover:bg-white/[0.01] transition-all text-left">
-                        <div className="w-12 h-12 shrink-0 bg-amber-500/10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-500">
-                            <span className="text-xl font-bold text-amber-400/60">03</span>
-                        </div>
-                        <div className="space-y-1">
-                            <h3 className="text-lg font-bold text-white/80 group-hover:text-amber-300 transition-colors uppercase tracking-tight">{t('home.step3_title')}</h3>
-                            <p className="text-dimmed leading-relaxed text-sm font-light">
-                                {t('home.step3_desc')}
-                            </p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
 
