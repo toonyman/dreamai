@@ -2,14 +2,25 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Globe, Twitter, Facebook, Link as LinkIcon, Check, Sparkles } from 'lucide-react';
+import { Menu, X, Globe, Twitter, Facebook, Link as LinkIcon, Check, Sparkles, History } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import '../lib/i18n';
 
 export default function Navigation() {
+    const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const [copied, setCopied] = useState(false);
-    const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
 
     const languages = [
         { code: 'en', name: 'English' },
@@ -83,6 +94,9 @@ export default function Navigation() {
                             <Link href="/face-passport" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-cyan-400 transition-all">
                                 {t('nav.face')}
                             </Link>
+                            <Link href="/past-life" className="text-sm font-bold tracking-wider uppercase text-white/50 hover:text-amber-500 transition-all">
+                                {t('nav.pastlife')}
+                            </Link>
                         </div>
                         <div className="flex items-center gap-2 border-r border-white/10 pr-8">
                             <button
@@ -152,6 +166,7 @@ export default function Navigation() {
                                 <Link href="/mbti" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.mbti')}</Link>
                                 <Link href="/soulmate" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.soulmate')}</Link>
                                 <Link href="/face-passport" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.face')}</Link>
+                                <Link href="/past-life" onClick={() => setIsOpen(false)} className="block text-xl font-light text-white/40 hover:text-white transition-colors">{t('nav.pastlife')}</Link>
                             </div>
                         </div>
 

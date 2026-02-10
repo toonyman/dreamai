@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { Sparkles, Sword, Moon, ArrowRight, Facebook, Twitter, Linkedin, Heart } from 'lucide-react';
+import { Sparkles, Sword, Moon, ArrowRight, Facebook, Twitter, Linkedin, Heart, History } from 'lucide-react';
 import '../lib/i18n';
 
 export default function Home() {
@@ -26,6 +26,15 @@ export default function Home() {
             icon: Sword,
             color: 'from-amber-500 to-mystic-night-gold',
             link: '/mbti',
+            hoverColor: 'group-hover:text-amber-400'
+        },
+        {
+            id: 'past-life',
+            title: 'pastlife.card_title',
+            desc: 'pastlife.card_desc',
+            icon: History,
+            color: 'from-amber-600 to-orange-800',
+            link: '/past-life',
             hoverColor: 'group-hover:text-amber-400'
         },
         {
