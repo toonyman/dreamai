@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import * as faceapi from 'face-api.js';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Upload, RefreshCw, Heart, Users, Share2, Sparkles, ShieldCheck, Target, Zap, Activity, Globe, Copy, Check } from 'lucide-react';
+import { Upload, RefreshCw, Heart, Users, Share2, Sparkles, ShieldCheck, Target, Zap, Activity, Globe, Copy, Check, Facebook } from 'lucide-react';
 
 type MatchMode = 'lover' | 'friend';
 
@@ -114,6 +114,11 @@ export default function SoulmateMatchPage() {
         const text = t('soulmate.share_text', { score });
         const url = window.location.href;
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+    };
+
+    const handleShareFacebook = () => {
+        const url = window.location.href;
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
     };
 
     const getResultLevel = (s: number) => {
@@ -232,8 +237,8 @@ export default function SoulmateMatchPage() {
                                         disabled={!image1 || !image2 || isAnalyzing}
                                         onClick={calculateChemistry}
                                         className={`w-full max-w-sm mx-auto px-10 py-5 rounded-full font-bold text-lg shadow-2xl flex items-center justify-center gap-3 transition-all ${image1 && image2
-                                                ? 'bg-mystic-gradient scale-100 hover:scale-105 active:scale-95 animate-pulse'
-                                                : 'bg-white/5 text-white/20 grayscale pointer-events-none'
+                                            ? 'bg-mystic-gradient scale-100 hover:scale-105 active:scale-95 animate-pulse'
+                                            : 'bg-white/5 text-white/20 grayscale pointer-events-none'
                                             }`}
                                     >
                                         {isAnalyzing ? (
@@ -283,13 +288,22 @@ export default function SoulmateMatchPage() {
                                         </div>
 
                                         <div className="flex flex-col gap-3">
-                                            <button
-                                                onClick={handleShareTwitter}
-                                                className="w-full py-4 rounded-full bg-[#1da1f2] text-white font-bold flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform shadow-xl"
-                                            >
-                                                <Share2 className="w-5 h-5" />
-                                                SHARE ON X
-                                            </button>
+                                            <div className="grid grid-cols-2 gap-3">
+                                                <button
+                                                    onClick={handleShareTwitter}
+                                                    className="w-full py-4 rounded-full bg-[#1da1f2] text-white font-bold flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform shadow-xl"
+                                                >
+                                                    <Share2 className="w-5 h-5 md:hidden lg:block" />
+                                                    X
+                                                </button>
+                                                <button
+                                                    onClick={handleShareFacebook}
+                                                    className="w-full py-4 rounded-full bg-[#1877f2] text-white font-bold flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform shadow-xl"
+                                                >
+                                                    <Facebook className="w-5 h-5 md:hidden lg:block" />
+                                                    META
+                                                </button>
+                                            </div>
                                             <button
                                                 onClick={handleCopyLink}
                                                 className="w-full py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold flex items-center justify-center gap-3 hover:bg-white/10 transition-colors shadow-lg"
