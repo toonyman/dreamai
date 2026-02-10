@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { Camera, Upload, RefreshCw, Share2, ShieldCheck, Plane, Hash, Globe, User, Facebook, Twitter, Linkedin, Frown, BarChart3, AlertCircle } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { faceCountries, FaceCountry } from '../../lib/faceData';
-import ShareSection from '../../components/ShareSection';
 
 export default function FacePassportPage() {
     const { t } = useTranslation();
@@ -500,15 +499,6 @@ export default function FacePassportPage() {
                                         <RefreshCw className="w-5 h-5" />
                                         {t('face.retry')}
                                     </button>
-                                </div>
-
-                                <div className="max-w-xl mx-auto w-full glass-premium rounded-3xl p-8 space-y-4 mt-8">
-                                    <h4 className="text-sm font-bold tracking-[0.2em] uppercase text-white/50 text-center">{t('common.share_identity')}</h4>
-                                    <ShareSection
-                                        title={t(`face.country.${result?.id}.name`)}
-                                        description={t(`face.country.${result?.id}.desc`)}
-                                        shareText={t('face.share_text')}
-                                    />
                                 </div>
                             </motion.div>
                         )}
