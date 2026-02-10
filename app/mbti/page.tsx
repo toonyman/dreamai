@@ -230,6 +230,18 @@ export default function MBTIPage() {
                                     {t('common.return_home')}
                                 </button>
                             </div>
+
+                            <div className="max-w-xl mx-auto w-full glass-premium rounded-3xl p-8 space-y-4 mt-8">
+                                <h4 className="text-sm font-bold tracking-[0.2em] uppercase text-white/50 text-center">{t('common.share_identity')}</h4>
+                                <ShareSection
+                                    title={t(`mbti.char.${result.id}.name`)}
+                                    description={t(`mbti.char.${result.id}.desc`)}
+                                    shareText={t('mbti.share_text', {
+                                        character: t(`mbti.char.${result.id}.name`),
+                                        mbti: result.mbti
+                                    })}
+                                />
+                            </div>
                         </motion.div>
                     )}
                 </AnimatePresence>

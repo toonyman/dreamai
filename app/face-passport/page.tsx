@@ -93,63 +93,111 @@ export default function FacePassportPage() {
             // Artificial delay for UX
             await new Promise(resolve => setTimeout(resolve, 2000));
 
+            // Create a simple hash from image data for consistent randomization per image
+            const imageHash = image.split('').reduce((acc, char, idx) => {
+                return acc + char.charCodeAt(0) * (idx + 1);
+            }, 0);
+
+            // Seeded random function based on image hash
+            const seededRandom = (seed: number) => {
+                const x = Math.sin(seed) * 10000;
+                return x - Math.floor(x);
+            };
+
             if (detections) {
                 const expressions = detections.expressions;
+                const landmarks = detections.landmarks;
 
-                // Logic based on expressions/landmarks
-                let matchIndex = 0;
+                // Calculate face characteristics from landmarks
+                const positions = landmarks.positions;
+                const faceWidth = Math.abs(positions[16].x - positions[0].x);
+                const faceHeight = Math.abs(positions[8].y - positions[27].y);
+                const faceRatio = faceWidth / faceHeight;
 
-                if (expressions.happy > 0.5) {
-                    matchIndex = 0; // Brazil
-                } else if (expressions.neutral > 0.5) {
-                    matchIndex = 1; // Norway
-                } else if (expressions.surprised > 0.3) {
-                    matchIndex = 2; // Thailand
-                } else {
-                    matchIndex = Math.floor(Math.random() * faceCountries.length);
+                // Use multiple factors to determine match
+                const expressionScore =
+                    expressions.happy * 1.5 +
+                    expressions.neutral * 1.2 +
+                    expressions.surprised * 1.3 +
+                    expressions.sad * 0.8;
+
+                // Combine image hash, face ratio, and expressions for unique index
+                const combinedSeed = imageHash + (faceRatio * 1000) + (expressionScore * 100);
+                const normalizedSeed = Math.abs(combinedSeed % 1000);
+
+                let matchIndex = Math.floor(seededRandom(normalizedSeed) * faceCountries.length);
+
+                // Fine-tune based on dominant expression
+                const dominantExpression = Object.entries(expressions).reduce((a, b) =>
+                    expressions[a[0] as keyof typeof expressions] > expressions[b[0] as keyof typeof expressions] ? a : b
+                );
+
+                // Adjust index based on expression (but keep it deterministic per image)
+                if (dominantExpression[0] === 'happy' && dominantExpression[1] > 0.4) {
+                    matchIndex = (matchIndex + Math.floor(seededRandom(normalizedSeed + 1) * 3)) % faceCountries.length;
+                } else if (dominantExpression[0] === 'neutral' && dominantExpression[1] > 0.5) {
+                    matchIndex = (matchIndex + Math.floor(seededRandom(normalizedSeed + 2) * 5)) % faceCountries.length;
                 }
 
-                // Generate metrics
-                const harmony = Math.floor(Math.random() * 10) + 90; // 90-99%
+                // Generate metrics based on image characteristics
+                const harmony = Math.floor(85 + seededRandom(normalizedSeed + 10) * 14); // 85-99%
                 const vibes = ["exotic", "classic", "modern", "royal", "friendly"];
                 const charms = ["eyes", "jawline", "harmony", "smile", "aura"];
                 const ranks = ["s_plus", "sss", "exotic_elite", "legendary", "alpha"];
 
                 setDetailedMetrics({
                     harmony,
-                    vibe: vibes[Math.floor(Math.random() * vibes.length)],
-                    charm: charms[Math.floor(Math.random() * charms.length)],
-                    rank: ranks[Math.floor(Math.random() * ranks.length)]
+                    vibe: vibes[Math.floor(seededRandom(normalizedSeed + 20) * vibes.length)],
+                    charm: charms[Math.floor(seededRandom(normalizedSeed + 30) * charms.length)],
+                    rank: ranks[Math.floor(seededRandom(normalizedSeed + 40) * ranks.length)]
                 });
 
-                // Generate unfavored (least matched)
+                // Generate unfavored (least matched) - deterministic per image
                 const targetId = faceCountries[matchIndex].id;
                 const others = faceCountries.filter(c => c.id !== targetId);
-                const shuffled = [...others].sort(() => 0.5 - Math.random());
+                const shuffled = [...others].sort((a, b) => {
+                    const hashA = a.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                    const hashB = b.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                    return seededRandom(normalizedSeed + hashA) - seededRandom(normalizedSeed + hashB);
+                });
                 setUnfavoredCountries(shuffled.slice(0, 3));
 
                 setResult(faceCountries[matchIndex]);
                 setShowPassport(true);
             } else {
-                // Fallback
-                const randomIndex = Math.floor(Math.random() * faceCountries.length);
+                // Fallback - still use image hash for consistency
+                const normalizedSeed = Math.abs(imageHash % 1000);
+                const randomIndex = Math.floor(seededRandom(normalizedSeed) * faceCountries.length);
                 setResult(faceCountries[randomIndex]);
 
                 setDetailedMetrics({
-                    harmony: 88,
-                    vibe: "natural",
-                    charm: "auth",
-                    rank: "alpha"
+                    harmony: Math.floor(82 + seededRandom(normalizedSeed + 5) * 15),
+                    vibe: ["exotic", "classic", "modern", "royal", "friendly"][Math.floor(seededRandom(normalizedSeed + 15) * 5)],
+                    charm: ["eyes", "jawline", "harmony", "smile", "aura"][Math.floor(seededRandom(normalizedSeed + 25) * 5)],
+                    rank: ["s_plus", "sss", "exotic_elite", "legendary", "alpha"][Math.floor(seededRandom(normalizedSeed + 35) * 5)]
                 });
 
                 const others = faceCountries.filter(c => c.id !== faceCountries[randomIndex].id);
-                setUnfavoredCountries(others.sort(() => 0.5 - Math.random()).slice(0, 3));
+                const shuffled = [...others].sort((a, b) => {
+                    const hashA = a.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                    const hashB = b.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                    return seededRandom(normalizedSeed + hashA) - seededRandom(normalizedSeed + hashB);
+                });
+                setUnfavoredCountries(shuffled.slice(0, 3));
 
                 setShowPassport(true);
             }
         } catch (error) {
             console.error('Face analysis failed:', error);
-            setResult(faceCountries[Math.floor(Math.random() * faceCountries.length)]);
+            // Even on error, use image hash for consistency
+            const imageHash = image?.split('').reduce((acc, char, idx) => acc + char.charCodeAt(0) * (idx + 1), 0) || 0;
+            const normalizedSeed = Math.abs(imageHash % 1000);
+            const seededRandom = (seed: number) => {
+                const x = Math.sin(seed) * 10000;
+                return x - Math.floor(x);
+            };
+            const errorIndex = Math.floor(seededRandom(normalizedSeed) * faceCountries.length);
+            setResult(faceCountries[errorIndex]);
             setShowPassport(true);
         } finally {
             setIsAnalyzing(false);

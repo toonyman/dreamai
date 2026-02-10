@@ -795,6 +795,12 @@ const resources = {
             "face.ideal_job": "이상적인 직업",
             "face.past_life": "전생의 업보",
 
+            "face.rank.s_plus": "S+",
+            "face.rank.sss": "SSS",
+            "face.rank.exotic_elite": "이국적 엘리트",
+            "face.rank.legendary": "레전더리",
+            "face.rank.alpha": "알파",
+
             // Soulmate Page
             "soulmate.title": "AI 관상 궁합",
             "soulmate.subtitle": "두 사람의 얼굴 데이터로 무의식적 케미를 분석합니다。",

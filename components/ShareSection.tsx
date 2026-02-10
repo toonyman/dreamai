@@ -28,11 +28,12 @@ export default function ShareSection({ title, description, url, shareText }: Sha
 
     const shareTwitter = () => {
         const text = shareText || `${title}\n${description}`;
-        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+        const fullText = `${text}\n\n${shareUrl}`;
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(fullText)}`, '_blank');
     };
 
     const shareFacebook = () => {
-        const quote = shareText || title;
+        const quote = shareText || `${title}\n\n${description}`;
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}`, '_blank');
     };
 
