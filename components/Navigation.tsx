@@ -34,7 +34,7 @@ export default function Navigation() {
     };
 
     const getShareUrl = () => {
-        return typeof window !== 'undefined' ? window.location.href : 'https://dreamai.vercel.app';
+        return typeof window !== 'undefined' ? window.location.href : 'https://dreamai-eight.vercel.app';
     };
 
     const getMetaShareText = () => {

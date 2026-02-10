@@ -25,20 +25,20 @@ export const metadata: Metadata = {
         address: false,
         telephone: false,
     },
-    metadataBase: new URL('https://dreamai.vercel.app'),
+    metadataBase: new URL('https://dreamai-eight.vercel.app'),
     alternates: {
         canonical: '/',
     },
     openGraph: {
         title: "WhoAmI.zip: AI가 분석하는 나의 모든 것",
         description: "AI가 나보다 나를 더 잘 안다고? 🧠 관상으로 보는 전생부터 얼굴 분석까지! 지금 바로 확인해보세요.",
-        url: 'https://dreamai.vercel.app',
+        url: 'https://dreamai-eight.vercel.app',
         siteName: 'WhoAmI.zip',
         locale: 'ko_KR',
         type: 'website',
         images: [
             {
-                url: 'https://dreamai.vercel.app/whoamiThumnail.png',
+                url: 'https://dreamai-eight.vercel.app/whoamiThumnail.png',
                 width: 1200,
                 height: 630,
                 alt: 'WhoAmI.zip - AI Analysis Platform',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'WhoAmI.zip: AI Personality & Face Analysis',
         description: "6 Viral AI Tests: Dream, MBTI, Past Life, Soulmate, Face Analysis. Try it when you're bored! 🚀",
-        images: ['https://dreamai.vercel.app/whoamiThumnail.png'],
+        images: ['https://dreamai-eight.vercel.app/whoamiThumnail.png'],
     },
     robots: {
         index: true,
