@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { Sparkles, Sword, Moon, ArrowRight, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Sparkles, Sword, Moon, ArrowRight, Facebook, Twitter, Linkedin, Heart } from 'lucide-react';
 import '../lib/i18n';
 
 export default function Home() {
@@ -27,6 +27,15 @@ export default function Home() {
             color: 'from-amber-500 to-mystic-night-gold',
             link: '/mbti',
             hoverColor: 'group-hover:text-amber-400'
+        },
+        {
+            id: 'soulmate',
+            title: 'home.soulmate_card_title',
+            desc: 'home.soulmate_card_desc',
+            icon: Heart,
+            color: 'from-pink-500 to-rose-600',
+            link: '/soulmate',
+            hoverColor: 'group-hover:text-pink-400'
         },
         {
             id: 'face',
