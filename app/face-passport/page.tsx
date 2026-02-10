@@ -508,6 +508,7 @@ export default function FacePassportPage() {
                                         title={t(`face.country.${result?.id}.name`)}
                                         description={t(`face.country.${result?.id}.desc`)}
                                         shareText={t('face.share_text')}
+                                        imageElementRef={passportRef}
                                     />
                                 </div>
                             </motion.div>
